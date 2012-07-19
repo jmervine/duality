@@ -15,6 +15,7 @@ class Duality
     raise NotACache unless slow.respond_to?(:set) && slow.respond_to?(:get)
     @fast = fast
     @slow = slow
+    Thread.abort_on_exception = true 
   end
 
   # Return set timeout or use default.
@@ -27,14 +28,15 @@ class Duality
   # - return true if both succeed
   # - return false if either fail
   def set key, value
-    Process.fork { @fast.set(key, value) }
-    Process.fork { @slow.set(key, value) }
-    begin
-      Timeout::timeout(timeout) do
-        return ((Process.waitall.select { |p| p[1] == 0 }).count == 2)
-      end
-    rescue Timeout::Error
-      raise CacheTimeout
+    fast = Thread.new { @fast.set(key, value) }
+    slow = Thread.new { @slow.set(key, value) }
+
+    timeout = 5 # iterations, or 0.5 seconds
+    current = 0
+    while (fast.alive? || slow.alive?) do
+      raise CacheTimeout if current == timeout
+      sleep 0.1
+      current = current + 1
     end
   end
 

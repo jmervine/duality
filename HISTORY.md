@@ -1,5 +1,9 @@
 # Duality
 
+## v0.0.3
+
+* updated thread timeout to be more thready
+
 ## v0.0.2
 
 * moved from process forking to threading model

@@ -295,16 +295,16 @@
           <div class="method-description">
             
             <p>Add support for other methods from passed caches this adds support only,
-but no speed gains. TODO: add "strict_" support</p>
+but no speed gains.</p>
 <ul><li>
-<p>e.g. ^"strict_save" calls save if both caches containt save</p>
+<p>use "strict_" to ensure both caches contain method</p>
 </li></ul>
             
 
             
             <div class="method-source-code" id="method_missing-source">
 <pre>
-<span class="ruby-comment"># File lib/duality.rb, line 63</span>
+<span class="ruby-comment"># File lib/duality.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">meth</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">meth</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^strict_(.+)$/</span>
     <span class="ruby-identifier">meth</span> = <span class="ruby-node">$1</span>

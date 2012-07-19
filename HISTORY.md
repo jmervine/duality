@@ -1,6 +1,9 @@
 # Duality
 
-## pre-release
+## v0.0.2
 
-* initial commit
+* moved from process forking to threading model
+* added delete and flush support - async
+* added aliases for cachely
+
 

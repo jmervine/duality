@@ -29,14 +29,9 @@ class Duality
   def set key, value
     fast = Thread.new { @fast.set(key, value) }
     slow = Thread.new { @slow.set(key, value) }
-
-    timeout = 10 # iterations, or 1 seconds
-    current = 0
-    while (fast.alive? || slow.alive?) do
-      raise CacheTimeout if current == timeout
-      sleep 0.1
-      current = current + 1
-    end
+    fast.join(1)
+    slow.join(1)
+    (fast.status == false && slow.status == false)
   end
   alias :save :set
 
@@ -44,14 +39,9 @@ class Duality
   def delete key
     fast = Thread.new { @fast.delete(key) }
     slow = Thread.new { @slow.delete(key) }
-
-    timeout = 10 # iterations, or 1 seconds
-    current = 0
-    while (fast.alive? || slow.alive?) do
-      raise CacheTimeout if current == timeout
-      sleep 0.1
-      current = current + 1
-    end
+    fast.join(1)
+    slow.join(1)
+    (fast.status == false && slow.status == false)
   end
   alias :remove :delete
 
@@ -59,14 +49,9 @@ class Duality
   def flush
     fast = Thread.new { @fast.flush }
     slow = Thread.new { @slow.flush }
-
-    timeout = 10 # iterations, or 1 seconds
-    current = 0
-    while (fast.alive? || slow.alive?) do
-      raise CacheTimeout if current == timeout
-      sleep 0.1
-      current = current + 1
-    end
+    fast.join(1)
+    slow.join(1)
+    (fast.status == false && slow.status == false)
   end
   alias :clean :flush
 

@@ -12,7 +12,7 @@ a simple cache interface to setting and getting from two caches
         require 'memcached'
         require 'duality'
         
-        $cache = Duality.new(Diskcached.new, Memcached.new) # example caches
+        $cache = Duality.new(Diskcached.new, Memcached.new("remotehost:11211")) # example caches
         $cache.set('key', "content")
         puts $cache.get('key')
         

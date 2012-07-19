@@ -18,7 +18,7 @@ a simple cache interface to setting and getting from two caches
         
 ## More Info
 
-### [Documentation](TBD) 
-### [Coverage](TBD)
+### [Documentation](http://rubyops.github.com/duality/doc/Duality.html) 
+### [Coverage](http://rubyops.github.com/duality/coverage/)
 
 

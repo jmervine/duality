@@ -57,9 +57,7 @@ class Duality
 
   # Add support for other methods from passed caches
   # this adds support only, but no speed gains.
-  # TODO: add "strict_" support
-  # - e.g. ^"strict_save" calls #save if both caches
-  #   containt save
+  # - use "strict_" to ensure both caches contain method
   def method_missing(meth, *args, &block)
     if meth =~ /^strict_(.+)$/
       meth = $1

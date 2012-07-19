@@ -1,7 +1,7 @@
 require 'timeout'
 class Duality
 
-  VERSION = "0.0.2"
+  VERSION = "0.0.3"
   #DEFAULT_TIMEOUT=1
   @@fast, @@slow = nil
 

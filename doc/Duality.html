@@ -270,18 +270,13 @@
             
             <div class="method-source-code" id="delete-source">
 <pre>
-<span class="ruby-comment"># File lib/duality.rb, line 44</span>
+<span class="ruby-comment"># File lib/duality.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span> <span class="ruby-identifier">key</span>
   <span class="ruby-identifier">fast</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@fast</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>) }
   <span class="ruby-identifier">slow</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@slow</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>) }
-
-  <span class="ruby-identifier">timeout</span> = <span class="ruby-value">10</span> <span class="ruby-comment"># iterations, or 1 seconds</span>
-  <span class="ruby-identifier">current</span> = <span class="ruby-value">0</span>
-  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">fast</span>.<span class="ruby-identifier">alive?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">alive?</span>) <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">CacheTimeout</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">current</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">timeout</span>
-    <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span>
-    <span class="ruby-identifier">current</span> = <span class="ruby-identifier">current</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">fast</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">1</span>)
+  <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">1</span>)
+  (<span class="ruby-identifier">fast</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>)
 <span class="ruby-keyword">end</span></pre>
             </div><!-- delete-source -->
             
@@ -316,18 +311,13 @@
             
             <div class="method-source-code" id="flush-source">
 <pre>
-<span class="ruby-comment"># File lib/duality.rb, line 59</span>
+<span class="ruby-comment"># File lib/duality.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">flush</span>
   <span class="ruby-identifier">fast</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@fast</span>.<span class="ruby-identifier">flush</span> }
   <span class="ruby-identifier">slow</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@slow</span>.<span class="ruby-identifier">flush</span> }
-
-  <span class="ruby-identifier">timeout</span> = <span class="ruby-value">10</span> <span class="ruby-comment"># iterations, or 1 seconds</span>
-  <span class="ruby-identifier">current</span> = <span class="ruby-value">0</span>
-  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">fast</span>.<span class="ruby-identifier">alive?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">alive?</span>) <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">CacheTimeout</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">current</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">timeout</span>
-    <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span>
-    <span class="ruby-identifier">current</span> = <span class="ruby-identifier">current</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">fast</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">1</span>)
+  <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">1</span>)
+  (<span class="ruby-identifier">fast</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>)
 <span class="ruby-keyword">end</span></pre>
             </div><!-- flush-source -->
             
@@ -365,7 +355,7 @@
             
             <div class="method-source-code" id="get-source">
 <pre>
-<span class="ruby-comment"># File lib/duality.rb, line 75</span>
+<span class="ruby-comment"># File lib/duality.rb, line 60</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span> <span class="ruby-identifier">key</span>
   <span class="ruby-identifier">content</span> = <span class="ruby-keyword">nil</span>
   <span class="ruby-keyword">begin</span>
@@ -447,7 +437,7 @@ but no speed gains.</p>
             
             <div class="method-source-code" id="method_missing-source">
 <pre>
-<span class="ruby-comment"># File lib/duality.rb, line 95</span>
+<span class="ruby-comment"># File lib/duality.rb, line 80</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">meth</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">meth</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^strict_(.+)$/</span>
     <span class="ruby-identifier">meth</span> = <span class="ruby-node">$1</span>
@@ -553,14 +543,9 @@ but no speed gains.</p>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">set</span> <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>
   <span class="ruby-identifier">fast</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@fast</span>.<span class="ruby-identifier">set</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>) }
   <span class="ruby-identifier">slow</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@slow</span>.<span class="ruby-identifier">set</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>) }
-
-  <span class="ruby-identifier">timeout</span> = <span class="ruby-value">10</span> <span class="ruby-comment"># iterations, or 1 seconds</span>
-  <span class="ruby-identifier">current</span> = <span class="ruby-value">0</span>
-  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">fast</span>.<span class="ruby-identifier">alive?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">alive?</span>) <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">CacheTimeout</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">current</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">timeout</span>
-    <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span>
-    <span class="ruby-identifier">current</span> = <span class="ruby-identifier">current</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">fast</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">1</span>)
+  <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">1</span>)
+  (<span class="ruby-identifier">fast</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>)
 <span class="ruby-keyword">end</span></pre>
             </div><!-- set-source -->
             

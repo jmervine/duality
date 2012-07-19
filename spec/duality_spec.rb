@@ -42,6 +42,34 @@ describe Duality do
     end
   end
 
+  describe "#delete" do
+    before(:all) do
+      @cache = Duality.new($fast, $slow)
+      @cache.set("delete_test", "foo")
+    end
+    it "should delete from both" do
+      expect { @cache.delete("delete_test") }.to_not raise_error
+      expect { $fast.get("delete_test") }.to raise_error /NotFound/
+      expect { $slow.get("delete_test") }.to raise_error /NotFound/
+    end
+  end
+
+  describe "#flush" do
+    before(:all) do
+      @cache = Duality.new($fast, $slow)
+      @cache.set("flush_test1", "foo")
+      @cache.set("flush_test2", "foo")
+      @cache.set("flush_test3", "foo")
+    end
+    it "should flush from both" do
+      expect { @cache.flush }.to_not raise_error
+      [ "flush_test1", "flush_test2", "flush_test3" ].each do |k|
+        expect { $fast.get(k) }.to raise_error /NotFound/
+        expect { $slow.get(k) }.to raise_error /NotFound/
+      end
+    end
+  end
+
   describe "#method_missing" do
     before(:all) do
       @cache = Duality.new($fast, $slow)
@@ -54,7 +82,7 @@ describe Duality do
     end
   end
   
-  describe "#method_missing", "with strict" do
+  describe "#method_missing", "(with strict)" do
     before(:all) do
       @cache = Duality.new($fast, $slow)
       @cache.set("test", "foo")
@@ -65,6 +93,20 @@ describe Duality do
       expect { @cache.strict_expired?("test") }.to raise_error
     end
   end
-  
+
+  describe "#method_missing", "(advanced)" do
+    pending "test missing_method with block saves" 
+  end
+
+  describe "aliases" do
+    before(:all) do
+      @cache = Duality.new($fast, $slow)
+    end
+    [ :save, :load, :remove, :clean ].each do |a|
+      it "##{a}" do
+        @cache.respond_to?(a.to_sym).should be_true
+      end
+    end
+  end 
 end
 

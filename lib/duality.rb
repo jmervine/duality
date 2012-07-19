@@ -1,13 +1,13 @@
 require 'timeout'
 class Duality
 
-  VERSION = "0.0.1"
-  DEFAULT_TIMEOUT=1
+  VERSION = "0.0.2"
+  #DEFAULT_TIMEOUT=1
   @@fast, @@slow = nil
 
   # Used to set cache connection timeout
   # - default is 0.5 seconds
-  attr_accessor :timeout
+  #attr_accessor :timeout
 
   def initialize fast, slow
     # check params are caches
@@ -19,19 +19,18 @@ class Duality
   end
 
   # Return set timeout or use default.
-  def timeout
-    @timeout||DEFAULT_TIMEOUT
-  end
+  #def timeout
+    #@timeout||DEFAULT_TIMEOUT
+  #end
 
   # Set to fast and slow.
-  # - timeout after #timeout
   # - return true if both succeed
   # - return false if either fail
   def set key, value
     fast = Thread.new { @fast.set(key, value) }
     slow = Thread.new { @slow.set(key, value) }
 
-    timeout = 5 # iterations, or 0.5 seconds
+    timeout = 10 # iterations, or 1 seconds
     current = 0
     while (fast.alive? || slow.alive?) do
       raise CacheTimeout if current == timeout
@@ -39,6 +38,37 @@ class Duality
       current = current + 1
     end
   end
+  alias :save :set
+
+  # Delete from both - async
+  def delete key
+    fast = Thread.new { @fast.delete(key) }
+    slow = Thread.new { @slow.delete(key) }
+
+    timeout = 10 # iterations, or 1 seconds
+    current = 0
+    while (fast.alive? || slow.alive?) do
+      raise CacheTimeout if current == timeout
+      sleep 0.1
+      current = current + 1
+    end
+  end
+  alias :remove :delete
+
+  # Flush caches - async
+  def flush
+    fast = Thread.new { @fast.flush }
+    slow = Thread.new { @slow.flush }
+
+    timeout = 10 # iterations, or 1 seconds
+    current = 0
+    while (fast.alive? || slow.alive?) do
+      raise CacheTimeout if current == timeout
+      sleep 0.1
+      current = current + 1
+    end
+  end
+  alias :clean :flush
 
   # Get from fast or slow.
   # - returns nil if none are found
@@ -57,6 +87,7 @@ class Duality
     end
     return content
   end
+  alias :load :get
 
   # Add support for other methods from passed caches
   # this adds support only, but no speed gains.

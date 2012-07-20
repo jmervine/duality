@@ -1,13 +1,7 @@
-require 'timeout'
 class Duality
 
-  VERSION = "0.0.3"
-  #DEFAULT_TIMEOUT=1
+  VERSION = "0.0.4"
   @@fast, @@slow = nil
-
-  # Used to set cache connection timeout
-  # - default is 0.5 seconds
-  #attr_accessor :timeout
 
   def initialize fast, slow
     # check params are caches
@@ -15,43 +9,25 @@ class Duality
     raise NotACache unless slow.respond_to?(:set) && slow.respond_to?(:get)
     @fast = fast
     @slow = slow
-    Thread.abort_on_exception = true 
   end
-
-  # Return set timeout or use default.
-  #def timeout
-    #@timeout||DEFAULT_TIMEOUT
-  #end
 
   # Set to fast and slow.
   # - return true if both succeed
   # - return false if either fail
   def set key, value
-    fast = Thread.new { @fast.set(key, value) }
-    slow = Thread.new { @slow.set(key, value) }
-    fast.join(1)
-    slow.join(1)
-    (fast.status == false && slow.status == false)
+    run_method(:set, key, value)
   end
   alias :save :set
 
   # Delete from both - async
   def delete key
-    fast = Thread.new { @fast.delete(key) }
-    slow = Thread.new { @slow.delete(key) }
-    fast.join(1)
-    slow.join(1)
-    (fast.status == false && slow.status == false)
+    run_method(:delete, key)
   end
   alias :remove :delete
 
   # Flush caches - async
   def flush
-    fast = Thread.new { @fast.flush }
-    slow = Thread.new { @slow.flush }
-    fast.join(1)
-    slow.join(1)
-    (fast.status == false && slow.status == false)
+    run_method(:flush)
   end
   alias :clean :flush
 
@@ -94,6 +70,25 @@ class Duality
       return fast if fast == slow
       return slow if fast.nil?
       return fast
+  end
+
+  def run_method meth, *args
+    success = true
+    begin
+      @fast.send(meth, *args) 
+    rescue Exception
+      success = false 
+    rescue 
+      success = false 
+    end
+    begin
+      @slow.send(meth, *args) 
+    rescue Exception
+      success = false 
+    rescue 
+      success = false 
+    end
+    return success
   end
 
   class NotACache < Exception

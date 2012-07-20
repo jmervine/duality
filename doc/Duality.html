@@ -163,22 +163,18 @@
 
         <div class="method-description">
           
-          <pre>Used to set cache connection timeout
-- default is 0.5 seconds</pre>
-
-<p>attr_accessor :timeout</p>
+          
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/duality.rb, line 12</span>
+            <pre><span class="ruby-comment"># File lib/duality.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">fast</span>, <span class="ruby-identifier">slow</span>
   <span class="ruby-comment"># check params are caches</span>
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotACache</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">fast</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:set</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">fast</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:get</span>)
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotACache</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:set</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:get</span>)
   <span class="ruby-ivar">@fast</span> = <span class="ruby-identifier">fast</span>
   <span class="ruby-ivar">@slow</span> = <span class="ruby-identifier">slow</span>
-  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">abort_on_exception</span> = <span class="ruby-keyword">true</span> 
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -239,13 +235,9 @@
 
           
           <div class="method-source-code" id="delete-source">
-            <pre><span class="ruby-comment"># File lib/duality.rb, line 39</span>
+            <pre><span class="ruby-comment"># File lib/duality.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span> <span class="ruby-identifier">key</span>
-  <span class="ruby-identifier">fast</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@fast</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>) }
-  <span class="ruby-identifier">slow</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@slow</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>) }
-  <span class="ruby-identifier">fast</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">1</span>)
-  <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">1</span>)
-  (<span class="ruby-identifier">fast</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">run_method</span>(<span class="ruby-value">:delete</span>, <span class="ruby-identifier">key</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- delete-source -->
           
@@ -277,13 +269,9 @@
 
           
           <div class="method-source-code" id="flush-source">
-            <pre><span class="ruby-comment"># File lib/duality.rb, line 49</span>
+            <pre><span class="ruby-comment"># File lib/duality.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">flush</span>
-  <span class="ruby-identifier">fast</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@fast</span>.<span class="ruby-identifier">flush</span> }
-  <span class="ruby-identifier">slow</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@slow</span>.<span class="ruby-identifier">flush</span> }
-  <span class="ruby-identifier">fast</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">1</span>)
-  <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">1</span>)
-  (<span class="ruby-identifier">fast</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">run_method</span>(<span class="ruby-value">:flush</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- flush-source -->
           
@@ -318,7 +306,7 @@
 
           
           <div class="method-source-code" id="get-source">
-            <pre><span class="ruby-comment"># File lib/duality.rb, line 60</span>
+            <pre><span class="ruby-comment"># File lib/duality.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span> <span class="ruby-identifier">key</span>
   <span class="ruby-identifier">content</span> = <span class="ruby-keyword">nil</span>
   <span class="ruby-keyword">begin</span>
@@ -395,7 +383,7 @@ but no speed gains.</p>
 
           
           <div class="method-source-code" id="method_missing-source">
-            <pre><span class="ruby-comment"># File lib/duality.rb, line 80</span>
+            <pre><span class="ruby-comment"># File lib/duality.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">meth</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">meth</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r^strict_(.+)$/</span>
     <span class="ruby-identifier">meth</span> = <span class="ruby-node">$1</span>
@@ -490,13 +478,9 @@ but no speed gains.</p>
 
           
           <div class="method-source-code" id="set-source">
-            <pre><span class="ruby-comment"># File lib/duality.rb, line 29</span>
+            <pre><span class="ruby-comment"># File lib/duality.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">set</span> <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>
-  <span class="ruby-identifier">fast</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@fast</span>.<span class="ruby-identifier">set</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>) }
-  <span class="ruby-identifier">slow</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@slow</span>.<span class="ruby-identifier">set</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>) }
-  <span class="ruby-identifier">fast</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">1</span>)
-  <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">1</span>)
-  (<span class="ruby-identifier">fast</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">slow</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">run_method</span>(<span class="ruby-value">:set</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- set-source -->
           

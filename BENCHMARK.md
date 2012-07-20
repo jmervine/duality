@@ -1,7 +1,7 @@
 ## Note
 
 There is an open issue on these results
-* [https://github.com/rubyops/duality/issues/2]
+* https://github.com/rubyops/duality/issues/2
 
 * * * * *
 

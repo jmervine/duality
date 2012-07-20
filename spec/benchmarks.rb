@@ -22,7 +22,7 @@ TIMES      = 100000
 puts "## Ruby #{`ruby -v | awk '{print $2}'`.chomp}"
 
   diskcache  = Diskcached.new('/tmp/benchmark')
-  mongocache = Mongocached.new( host: 'jmervine04.np.wc1.yellowpages.com' )
+  mongocache = Mongocached.new#( host: 'jmervine04.np.wc1.yellowpages.com' )
   cache = Duality.new(diskcache, mongocache)
 
   puts " "

@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/jmervine/Development/duality/lib/duality.rb": [
+      "/home/jmervine/personal/duality/lib/duality.rb": [
         1,
         1,
         null,
@@ -108,6 +108,6 @@
         null
       ]
     },
-    "timestamp": 1342732716
+    "timestamp": 1342770287
   }
 }

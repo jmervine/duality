@@ -1,5 +1,9 @@
 # Duality
 
+## v0.0.4
+
+* removed threading as it's proved to be slower
+
 ## v0.0.3
 
 * updated thread timeout to be more thready

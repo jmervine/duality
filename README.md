@@ -3,7 +3,7 @@ duality
 
 a simple cache interface to setting and getting from two caches
 
-* sets to both caches asynchronously
+* sets to both caches -asynchronously-
 * gets from faster and then fails over to slower
 
 ## Usage

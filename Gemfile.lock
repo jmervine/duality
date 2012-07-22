@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:rubyops/rdoc-rubydoc.git
-  revision: 3e216dd78f8d1c615cbdca7c4949ccc5c0f28466
+  revision: 2f5c16f8302e1eafaa870aeae29f6872c574a3e5
   specs:
     rdoc-rubydoc (0.0.1)
 

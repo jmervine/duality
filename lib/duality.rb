@@ -31,6 +31,11 @@ class Duality
   end
   alias :clean :flush
 
+  def flush_expired
+    run_method(:flush_expired)
+  end
+  alias :cleanup :flush_expired
+
   # Get from fast or slow.
   # - returns nil if none are found
   def get key

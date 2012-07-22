@@ -1,3 +1,9 @@
+GIT
+  remote: git@github.com:rubyops/rdoc-rubydoc.git
+  revision: 3e216dd78f8d1c615cbdca7c4949ccc5c0f28466
+  specs:
+    rdoc-rubydoc (0.0.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -35,5 +41,6 @@ DEPENDENCIES
   diskcached
   mongocached
   rdoc
+  rdoc-rubydoc!
   rspec
   simplecov

@@ -9,5 +9,6 @@ end
 
 group :development do
   gem 'rdoc'
+  gem 'rdoc-rubydoc', :git => 'git@github.com:rubyops/rdoc-rubydoc.git'
 end
 

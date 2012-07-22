@@ -1,5 +1,9 @@
 source :rubygems
 
+group :test, :development do
+  gem 'rake'
+end
+
 group :test do
   gem 'rspec'
   gem 'simplecov'

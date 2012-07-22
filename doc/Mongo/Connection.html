@@ -1,0 +1,3948 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <!-- RD version: 0.10.0  -->
+  <meta content="text/html; charset=US-ASCII" http-equiv="Content-Type" />
+  <title>Class: Mongo::Connection</title>
+  <link rel="stylesheet" href="../css/obf.css" >
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/rubydoc.js" type="text/javascript" charset="utf-8"></script> 
+
+ 
+<script src="../js/highlight.min.js"></script>
+<script> 
+  hljs.tabReplace = '  ';
+  hljs.initHighlightingOnLoad();
+  </script> 
+</head>
+
+<body id="top" class="class">
+<div id='actionbar' >
+<div class='wrapper'>
+  <ul class='grids g0'>
+  <li class='grid-2' ><a href='/' target='_top' >Home</a></li>
+  <li class='grid-5 right' id='rd-action-search'><form id="searchbox_011815814100681837392:wnccv6st5qk" action="/search.html"><input type="hidden" name="cx" value="011815814100681837392:wnccv6st5qk" ><input name="q" type="text" size="20" >&#160;&#160;<input type="submit" name="sa" value="Search" ><input type="hidden" name="cof" value="FORID:9" ></form>
+</li>
+</ul>
+</div>
+</div> <!-- end action bar -->
+ <div class='wrapper'>
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../vendor/bundle/ruby/1_9_1/gems/mongo-1_6_4/lib/mongo/connection_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb">vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="../Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-from_uri">::from_uri</a></li>
+          
+          <li><a href="#method-c-multi">::multi</a></li>
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-5B-5D">#[]</a></li>
+          
+          <li><a href="#method-i-active-3F">#active?</a></li>
+          
+          <li><a href="#method-i-add_auth">#add_auth</a></li>
+          
+          <li><a href="#method-i-apply_saved_authentication">#apply_saved_authentication</a></li>
+          
+          <li><a href="#method-i-authenticate_pools">#authenticate_pools</a></li>
+          
+          <li><a href="#method-i-best_available_socket">#best_available_socket</a></li>
+          
+          <li><a href="#method-i-check_opts">#check_opts</a></li>
+          
+          <li><a href="#method-i-checkin">#checkin</a></li>
+          
+          <li><a href="#method-i-checkin_reader">#checkin_reader</a></li>
+          
+          <li><a href="#method-i-checkin_writer">#checkin_writer</a></li>
+          
+          <li><a href="#method-i-checkout_best">#checkout_best</a></li>
+          
+          <li><a href="#method-i-checkout_reader">#checkout_reader</a></li>
+          
+          <li><a href="#method-i-checkout_writer">#checkout_writer</a></li>
+          
+          <li><a href="#method-i-clear_auths">#clear_auths</a></li>
+          
+          <li><a href="#method-i-close">#close</a></li>
+          
+          <li><a href="#method-i-connect">#connect</a></li>
+          
+          <li><a href="#method-i-connected-3F">#connected?</a></li>
+          
+          <li><a href="#method-i-copy_database">#copy_database</a></li>
+          
+          <li><a href="#method-i-database_info">#database_info</a></li>
+          
+          <li><a href="#method-i-database_names">#database_names</a></li>
+          
+          <li><a href="#method-i-db">#db</a></li>
+          
+          <li><a href="#method-i-drop_database">#drop_database</a></li>
+          
+          <li><a href="#method-i-host">#host</a></li>
+          
+          <li><a href="#method-i-lock-21">#lock!</a></li>
+          
+          <li><a href="#method-i-locked-3F">#locked?</a></li>
+          
+          <li><a href="#method-i-logout_pools">#logout_pools</a></li>
+          
+          <li><a href="#method-i-max_bson_size">#max_bson_size</a></li>
+          
+          <li><a href="#method-i-ping">#ping</a></li>
+          
+          <li><a href="#method-i-port">#port</a></li>
+          
+          <li><a href="#method-i-primary-3F">#primary?</a></li>
+          
+          <li><a href="#method-i-read_pool">#read_pool</a></li>
+          
+          <li><a href="#method-i-read_preference">#read_preference</a></li>
+          
+          <li><a href="#method-i-read_primary-3F">#read_primary?</a></li>
+          
+          <li><a href="#method-i-reconnect">#reconnect</a></li>
+          
+          <li><a href="#method-i-remove_auth">#remove_auth</a></li>
+          
+          <li><a href="#method-i-server_info">#server_info</a></li>
+          
+          <li><a href="#method-i-server_version">#server_version</a></li>
+          
+          <li><a href="#method-i-setup">#setup</a></li>
+          
+          <li><a href="#method-i-slave_ok-3F">#slave_ok?</a></li>
+          
+          <li><a href="#method-i-unlock-21">#unlock!</a></li>
+          
+          <li><a href="#method-i-valid_opts">#valid_opts</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Included Modules -->
+      <div id="includes-section" class="section">
+        <h3 class="section-header">Included Modules</h3>
+        <ul class="link-list">
+        
+        
+          <li><a class="include" href="Logging.html">Mongo::Logging</a></li>
+        
+        
+        
+          <li><a class="include" href="Networking.html">Mongo::Networking</a></li>
+        
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="../Gemfile.html">Gemfile</a></li>
+        
+          <li class="file"><a href="../Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/bin/htmldiff.html">htmldiff</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/bin/ldiff.html">ldiff</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/bundler/gems/rdoc-rubydoc-3e216dd78f8d/HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/bundler/gems/rdoc-rubydoc-3e216dd78f8d/Manifest_txt.html">Manifest.txt</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/bundler/gems/rdoc-rubydoc-3e216dd78f8d/Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/bundler/gems/rdoc-rubydoc-3e216dd78f8d/test/data/HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/bundler/gems/rdoc-rubydoc-3e216dd78f8d/test/data/README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/cache/bundler/git/rdoc-rubydoc-698b8be19956835ee0b99582c31910dee4e83bff/HEAD.html">HEAD</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/cache/bundler/git/rdoc-rubydoc-698b8be19956835ee0b99582c31910dee4e83bff/config.html">config</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/cache/bundler/git/rdoc-rubydoc-698b8be19956835ee0b99582c31910dee4e83bff/description.html">description</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/cache/bundler/git/rdoc-rubydoc-698b8be19956835ee0b99582c31910dee4e83bff/info/exclude.html">exclude</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/cache/bundler/git/rdoc-rubydoc-698b8be19956835ee0b99582c31910dee4e83bff/packed-refs.html">packed-refs</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/bson-1_6_4/LICENSE_txt.html">LICENSE.txt</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/bson-1_6_4/bin/b2json.html">b2json</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/bson-1_6_4/bin/j2bson.html">j2bson</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/bson_ext-1_6_4/Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/bson_ext-1_6_4/ext/cbson/Makefile.html">Makefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/diff-lcs-1_1_3/History_rdoc.html">History.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/diff-lcs-1_1_3/Manifest_txt.html">Manifest.txt</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/diff-lcs-1_1_3/README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/diff-lcs-1_1_3/Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/diff-lcs-1_1_3/bin/htmldiff.html">htmldiff</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/diff-lcs-1_1_3/bin/ldiff.html">ldiff</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/diff-lcs-1_1_3/docs/COPYING_txt.html">COPYING.txt</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/diskcached-1_1_0/Gemfile.html">Gemfile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/diskcached-1_1_0/Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/json-1_7_3/COPYING.html">COPYING</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/json-1_7_3/COPYING-json-jruby.html">COPYING-json-jruby</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/json-1_7_3/GPL.html">GPL</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/json-1_7_3/Gemfile.html">Gemfile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/json-1_7_3/README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/json-1_7_3/Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/json-1_7_3/TODO.html">TODO</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/json-1_7_3/VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/json-1_7_3/ext/json/ext/generator/Makefile.html">Makefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/json-1_7_3/ext/json/ext/generator/depend.html">depend</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/json-1_7_3/ext/json/ext/parser/Makefile.html">Makefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/json-1_7_3/ext/json/ext/parser/depend.html">depend</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/mongo-1_6_4/LICENSE_txt.html">LICENSE.txt</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/mongo-1_6_4/Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/mongocached-1_0_2/Gemfile.html">Gemfile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/mongocached-1_0_2/Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/MIT-LICENSE.html">MIT-LICENSE</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/TODO.html">TODO</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/command_line_usage_rdoc.html">command_line_usage.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/example/Rakefile1.html">Rakefile1</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/example/Rakefile2.html">Rakefile2</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/glossary_rdoc.html">glossary.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/proto_rake_rdoc.html">proto_rake.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/rakefile_rdoc.html">rakefile.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/rational_rdoc.html">rational.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_4_14_rdoc.html">rake-0.4.14.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_4_15_rdoc.html">rake-0.4.15.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_5_0_rdoc.html">rake-0.5.0.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_5_3_rdoc.html">rake-0.5.3.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_5_4_rdoc.html">rake-0.5.4.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_6_0_rdoc.html">rake-0.6.0.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_7_0_rdoc.html">rake-0.7.0.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_7_1_rdoc.html">rake-0.7.1.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_7_2_rdoc.html">rake-0.7.2.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_7_3_rdoc.html">rake-0.7.3.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_8_0_rdoc.html">rake-0.8.0.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_8_4_rdoc.html">rake-0.8.4.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_8_5_rdoc.html">rake-0.8.5.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_8_6_rdoc.html">rake-0.8.6.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rake-0_9_2_2/doc/release_notes/rake-0_8_7_rdoc.html">rake-0.8.7.rdoc</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rspec-2_11_0/License_txt.html">License.txt</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rspec-core-2_11_1/License_txt.html">License.txt</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rspec-expectations-2_11_1/License_txt.html">License.txt</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/rspec-mocks-2_11_1/License_txt.html">License.txt</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/simplecov-0_6_4/Appraisals.html">Appraisals</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/simplecov-0_6_4/Gemfile.html">Gemfile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/simplecov-0_6_4/LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/simplecov-0_6_4/Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/simplecov-0_6_4/test/faked_project/Gemfile.html">Gemfile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/simplecov-0_6_4/test/faked_project/Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/simplecov-html-0_5_3/LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../vendor/bundle/ruby/1_9_1/gems/simplecov-html-0_5_3/README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../RSpec.html">RSpec</a></li>
+        
+          <li><a href="../RSpec/Core.html">RSpec::Core</a></li>
+        
+          <li><a href="../RSpec/Core/CommandLine.html">RSpec::Core::CommandLine</a></li>
+        
+          <li><a href="../RSpec/Core/Configuration.html">RSpec::Core::Configuration</a></li>
+        
+          <li><a href="../RSpec/Core/Configuration/MustBeConfiguredBeforeExampleGroupsError.html">RSpec::Core::Configuration::MustBeConfiguredBeforeExampleGroupsError</a></li>
+        
+          <li><a href="../RSpec/Core/ConfigurationOptions.html">RSpec::Core::ConfigurationOptions</a></li>
+        
+          <li><a href="../RSpec/Core/ConstMissing.html">RSpec::Core::ConstMissing</a></li>
+        
+          <li><a href="../RSpec/Core/DRbCommandLine.html">RSpec::Core::DRbCommandLine</a></li>
+        
+          <li><a href="../RSpec/Core/DSL.html">RSpec::Core::DSL</a></li>
+        
+          <li><a href="../RSpec/Core/DrbOptions.html">RSpec::Core::DrbOptions</a></li>
+        
+          <li><a href="../RSpec/Core/Example.html">RSpec::Core::Example</a></li>
+        
+          <li><a href="../RSpec/Core/Example/NotPendingExampleFixed.html">RSpec::Core::Example::NotPendingExampleFixed</a></li>
+        
+          <li><a href="../RSpec/Core/Example/Procsy.html">RSpec::Core::Example::Procsy</a></li>
+        
+          <li><a href="../RSpec/Core/ExampleGroup.html">RSpec::Core::ExampleGroup</a></li>
+        
+          <li><a href="../RSpec/Core/Extensions.html">RSpec::Core::Extensions</a></li>
+        
+          <li><a href="../RSpec/Core/Extensions/InstanceEvalWithArgs.html">RSpec::Core::Extensions::InstanceEvalWithArgs</a></li>
+        
+          <li><a href="../RSpec/Core/Extensions/ModuleEvalWithArgs.html">RSpec::Core::Extensions::ModuleEvalWithArgs</a></li>
+        
+          <li><a href="../RSpec/Core/Extensions/Ordered.html">RSpec::Core::Extensions::Ordered</a></li>
+        
+          <li><a href="../RSpec/Core/FilterManager.html">RSpec::Core::FilterManager</a></li>
+        
+          <li><a href="../RSpec/Core/FilterManager/BackwardCompatibility.html">RSpec::Core::FilterManager::BackwardCompatibility</a></li>
+        
+          <li><a href="../RSpec/Core/FilterManager/Describable.html">RSpec::Core::FilterManager::Describable</a></li>
+        
+          <li><a href="../RSpec/Core/Formatters.html">RSpec::Core::Formatters</a></li>
+        
+          <li><a href="../RSpec/Core/Formatters/BaseFormatter.html">RSpec::Core::Formatters::BaseFormatter</a></li>
+        
+          <li><a href="../RSpec/Core/Formatters/BaseTextFormatter.html">RSpec::Core::Formatters::BaseTextFormatter</a></li>
+        
+          <li><a href="../RSpec/Core/Formatters/DocumentationFormatter.html">RSpec::Core::Formatters::DocumentationFormatter</a></li>
+        
+          <li><a href="../RSpec/Core/Formatters/Helpers.html">RSpec::Core::Formatters::Helpers</a></li>
+        
+          <li><a href="../RSpec/Core/Formatters/HtmlFormatter.html">RSpec::Core::Formatters::HtmlFormatter</a></li>
+        
+          <li><a href="../RSpec/Core/Formatters/ProgressFormatter.html">RSpec::Core::Formatters::ProgressFormatter</a></li>
+        
+          <li><a href="../RSpec/Core/Formatters/SnippetExtractor.html">RSpec::Core::Formatters::SnippetExtractor</a></li>
+        
+          <li><a href="../RSpec/Core/Formatters/SnippetExtractor/NullConverter.html">RSpec::Core::Formatters::SnippetExtractor::NullConverter</a></li>
+        
+          <li><a href="../RSpec/Core/Formatters/TextMateFormatter.html">RSpec::Core::Formatters::TextMateFormatter</a></li>
+        
+          <li><a href="../RSpec/Core/Hooks.html">RSpec::Core::Hooks</a></li>
+        
+          <li><a href="../RSpec/Core/Hooks/AfterHookExtension.html">RSpec::Core::Hooks::AfterHookExtension</a></li>
+        
+          <li><a href="../RSpec/Core/Hooks/AroundHookCollection.html">RSpec::Core::Hooks::AroundHookCollection</a></li>
+        
+          <li><a href="../RSpec/Core/Hooks/AroundHookExtension.html">RSpec::Core::Hooks::AroundHookExtension</a></li>
+        
+          <li><a href="../RSpec/Core/Hooks/BeforeHookExtension.html">RSpec::Core::Hooks::BeforeHookExtension</a></li>
+        
+          <li><a href="../RSpec/Core/Hooks/GroupHookCollection.html">RSpec::Core::Hooks::GroupHookCollection</a></li>
+        
+          <li><a href="../RSpec/Core/Hooks/HookCollection.html">RSpec::Core::Hooks::HookCollection</a></li>
+        
+          <li><a href="../RSpec/Core/Hooks/HookCollectionAliases.html">RSpec::Core::Hooks::HookCollectionAliases</a></li>
+        
+          <li><a href="../RSpec/Core/Hooks/HookExtension.html">RSpec::Core::Hooks::HookExtension</a></li>
+        
+          <li><a href="../RSpec/Core/Hooks/RegistersGlobals.html">RSpec::Core::Hooks::RegistersGlobals</a></li>
+        
+          <li><a href="../RSpec/Core/Let.html">RSpec::Core::Let</a></li>
+        
+          <li><a href="../RSpec/Core/Let/ExampleGroupMethods.html">RSpec::Core::Let::ExampleGroupMethods</a></li>
+        
+          <li><a href="../RSpec/Core/Let/ExampleMethods.html">RSpec::Core::Let::ExampleMethods</a></li>
+        
+          <li><a href="../RSpec/Core/Metadata.html">RSpec::Core::Metadata</a></li>
+        
+          <li><a href="../RSpec/Core/Metadata/ExampleMetadataHash.html">RSpec::Core::Metadata::ExampleMetadataHash</a></li>
+        
+          <li><a href="../RSpec/Core/Metadata/GroupMetadataHash.html">RSpec::Core::Metadata::GroupMetadataHash</a></li>
+        
+          <li><a href="../RSpec/Core/Metadata/MetadataHash.html">RSpec::Core::Metadata::MetadataHash</a></li>
+        
+          <li><a href="../RSpec/Core/MetadataHashBuilder.html">RSpec::Core::MetadataHashBuilder</a></li>
+        
+          <li><a href="../RSpec/Core/MetadataHashBuilder/Common.html">RSpec::Core::MetadataHashBuilder::Common</a></li>
+        
+          <li><a href="../RSpec/Core/MetadataHashBuilder/WithConfigWarning.html">RSpec::Core::MetadataHashBuilder::WithConfigWarning</a></li>
+        
+          <li><a href="../RSpec/Core/MetadataHashBuilder/WithDeprecationWarning.html">RSpec::Core::MetadataHashBuilder::WithDeprecationWarning</a></li>
+        
+          <li><a href="../RSpec/Core/MockFrameworkAdapter.html">RSpec::Core::MockFrameworkAdapter</a></li>
+        
+          <li><a href="../RSpec/Core/Parser.html">RSpec::Core::Parser</a></li>
+        
+          <li><a href="../RSpec/Core/Pending.html">RSpec::Core::Pending</a></li>
+        
+          <li><a href="../RSpec/Core/Pending/PendingDeclaredInExample.html">RSpec::Core::Pending::PendingDeclaredInExample</a></li>
+        
+          <li><a href="../RSpec/Core/Pending/PendingExampleFixedError.html">RSpec::Core::Pending::PendingExampleFixedError</a></li>
+        
+          <li><a href="../RSpec/Core/ProjectInitializer.html">RSpec::Core::ProjectInitializer</a></li>
+        
+          <li><a href="../RSpec/Core/RakeTask.html">RSpec::Core::RakeTask</a></li>
+        
+          <li><a href="../RSpec/Core/Reporter.html">RSpec::Core::Reporter</a></li>
+        
+          <li><a href="../RSpec/Core/RubyProject.html">RSpec::Core::RubyProject</a></li>
+        
+          <li><a href="../RSpec/Core/Runner.html">RSpec::Core::Runner</a></li>
+        
+          <li><a href="../RSpec/Core/SharedContext.html">RSpec::Core::SharedContext</a></li>
+        
+          <li><a href="../RSpec/Core/SharedExampleGroup.html">RSpec::Core::SharedExampleGroup</a></li>
+        
+          <li><a href="../RSpec/Core/Subject.html">RSpec::Core::Subject</a></li>
+        
+          <li><a href="../RSpec/Core/Subject/ExampleGroupMethods.html">RSpec::Core::Subject::ExampleGroupMethods</a></li>
+        
+          <li><a href="../RSpec/Core/Subject/ExampleMethods.html">RSpec::Core::Subject::ExampleMethods</a></li>
+        
+          <li><a href="../RSpec/Core/Version.html">RSpec::Core::Version</a></li>
+        
+          <li><a href="../RSpec/Core/World.html">RSpec::Core::World</a></li>
+        
+          <li><a href="../RSpec/Expectations.html">RSpec::Expectations</a></li>
+        
+          <li><a href="../RSpec/Expectations/DeprecatedConstants.html">RSpec::Expectations::DeprecatedConstants</a></li>
+        
+          <li><a href="../RSpec/Expectations/Differ.html">RSpec::Expectations::Differ</a></li>
+        
+          <li><a href="../RSpec/Expectations/ExpectationNotMetError.html">RSpec::Expectations::ExpectationNotMetError</a></li>
+        
+          <li><a href="../RSpec/Expectations/ExpectationTarget.html">RSpec::Expectations::ExpectationTarget</a></li>
+        
+          <li><a href="../RSpec/Expectations/NegativeExpectationHandler.html">RSpec::Expectations::NegativeExpectationHandler</a></li>
+        
+          <li><a href="../RSpec/Expectations/PositiveExpectationHandler.html">RSpec::Expectations::PositiveExpectationHandler</a></li>
+        
+          <li><a href="../RSpec/Expectations/Syntax.html">RSpec::Expectations::Syntax</a></li>
+        
+          <li><a href="../RSpec/Expectations/Version.html">RSpec::Expectations::Version</a></li>
+        
+          <li><a href="../RSpec/Matchers.html">RSpec::Matchers</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn.html">RSpec::Matchers::BuiltIn</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/BaseMatcher.html">RSpec::Matchers::BuiltIn::BaseMatcher</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/Be.html">RSpec::Matchers::BuiltIn::Be</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/BeAKindOf.html">RSpec::Matchers::BuiltIn::BeAKindOf</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/BeAnInstanceOf.html">RSpec::Matchers::BuiltIn::BeAnInstanceOf</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/BeComparedTo.html">RSpec::Matchers::BuiltIn::BeComparedTo</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/BeFalse.html">RSpec::Matchers::BuiltIn::BeFalse</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/BeNil.html">RSpec::Matchers::BuiltIn::BeNil</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/BePredicate.html">RSpec::Matchers::BuiltIn::BePredicate</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/BeTrue.html">RSpec::Matchers::BuiltIn::BeTrue</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/BeWithin.html">RSpec::Matchers::BuiltIn::BeWithin</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/Change.html">RSpec::Matchers::BuiltIn::Change</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/Cover.html">RSpec::Matchers::BuiltIn::Cover</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/EndWith.html">RSpec::Matchers::BuiltIn::EndWith</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/Eq.html">RSpec::Matchers::BuiltIn::Eq</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/Eql.html">RSpec::Matchers::BuiltIn::Eql</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/Equal.html">RSpec::Matchers::BuiltIn::Equal</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/Exist.html">RSpec::Matchers::BuiltIn::Exist</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/Has.html">RSpec::Matchers::BuiltIn::Has</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/Have.html">RSpec::Matchers::BuiltIn::Have</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/Include.html">RSpec::Matchers::BuiltIn::Include</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/Match.html">RSpec::Matchers::BuiltIn::Match</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/MatchArray.html">RSpec::Matchers::BuiltIn::MatchArray</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/NegativeOperatorMatcher.html">RSpec::Matchers::BuiltIn::NegativeOperatorMatcher</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/PositiveOperatorMatcher.html">RSpec::Matchers::BuiltIn::PositiveOperatorMatcher</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/RaiseError.html">RSpec::Matchers::BuiltIn::RaiseError</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/RespondTo.html">RSpec::Matchers::BuiltIn::RespondTo</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/Satisfy.html">RSpec::Matchers::BuiltIn::Satisfy</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/StartAndEndWith.html">RSpec::Matchers::BuiltIn::StartAndEndWith</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/StartWith.html">RSpec::Matchers::BuiltIn::StartWith</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/ThrowSymbol.html">RSpec::Matchers::BuiltIn::ThrowSymbol</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/YieldControl.html">RSpec::Matchers::BuiltIn::YieldControl</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/YieldProbe.html">RSpec::Matchers::BuiltIn::YieldProbe</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/YieldSuccessiveArgs.html">RSpec::Matchers::BuiltIn::YieldSuccessiveArgs</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/YieldWithArgs.html">RSpec::Matchers::BuiltIn::YieldWithArgs</a></li>
+        
+          <li><a href="../RSpec/Matchers/BuiltIn/YieldWithNoArgs.html">RSpec::Matchers::BuiltIn::YieldWithNoArgs</a></li>
+        
+          <li><a href="../RSpec/Matchers/Configuration.html">RSpec::Matchers::Configuration</a></li>
+        
+          <li><a href="../RSpec/Matchers/DSL.html">RSpec::Matchers::DSL</a></li>
+        
+          <li><a href="../RSpec/Matchers/DSL/Matcher.html">RSpec::Matchers::DSL::Matcher</a></li>
+        
+          <li><a href="../RSpec/Matchers/Extensions.html">RSpec::Matchers::Extensions</a></li>
+        
+          <li><a href="../RSpec/Matchers/Extensions/InstanceEvalWithArgs.html">RSpec::Matchers::Extensions::InstanceEvalWithArgs</a></li>
+        
+          <li><a href="../RSpec/Matchers/OperatorMatcher.html">RSpec::Matchers::OperatorMatcher</a></li>
+        
+          <li><a href="../RSpec/Matchers/Pretty.html">RSpec::Matchers::Pretty</a></li>
+        
+          <li><a href="../RSpec/Mocks.html">RSpec::Mocks</a></li>
+        
+          <li><a href="../RSpec/Mocks/AmbiguousReturnError.html">RSpec::Mocks::AmbiguousReturnError</a></li>
+        
+          <li><a href="../RSpec/Mocks/AnyInstance.html">RSpec::Mocks::AnyInstance</a></li>
+        
+          <li><a href="../RSpec/Mocks/AnyInstance/Chain.html">RSpec::Mocks::AnyInstance::Chain</a></li>
+        
+          <li><a href="../RSpec/Mocks/AnyInstance/ExpectationChain.html">RSpec::Mocks::AnyInstance::ExpectationChain</a></li>
+        
+          <li><a href="../RSpec/Mocks/AnyInstance/MessageChains.html">RSpec::Mocks::AnyInstance::MessageChains</a></li>
+        
+          <li><a href="../RSpec/Mocks/AnyInstance/NegativeExpectationChain.html">RSpec::Mocks::AnyInstance::NegativeExpectationChain</a></li>
+        
+          <li><a href="../RSpec/Mocks/AnyInstance/PositiveExpectationChain.html">RSpec::Mocks::AnyInstance::PositiveExpectationChain</a></li>
+        
+          <li><a href="../RSpec/Mocks/AnyInstance/Recorder.html">RSpec::Mocks::AnyInstance::Recorder</a></li>
+        
+          <li><a href="../RSpec/Mocks/AnyInstance/StubChain.html">RSpec::Mocks::AnyInstance::StubChain</a></li>
+        
+          <li><a href="../RSpec/Mocks/AnyInstance/StubChainChain.html">RSpec::Mocks::AnyInstance::StubChainChain</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentListMatcher.html">RSpec::Mocks::ArgumentListMatcher</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers.html">RSpec::Mocks::ArgumentMatchers</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers/AnyArgMatcher.html">RSpec::Mocks::ArgumentMatchers::AnyArgMatcher</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers/AnyArgsMatcher.html">RSpec::Mocks::ArgumentMatchers::AnyArgsMatcher</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers/BooleanMatcher.html">RSpec::Mocks::ArgumentMatchers::BooleanMatcher</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers/DuckTypeMatcher.html">RSpec::Mocks::ArgumentMatchers::DuckTypeMatcher</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers/EqualityProxy.html">RSpec::Mocks::ArgumentMatchers::EqualityProxy</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers/HashExcludingMatcher.html">RSpec::Mocks::ArgumentMatchers::HashExcludingMatcher</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers/HashIncludingMatcher.html">RSpec::Mocks::ArgumentMatchers::HashIncludingMatcher</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers/InstanceOf.html">RSpec::Mocks::ArgumentMatchers::InstanceOf</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers/KindOf.html">RSpec::Mocks::ArgumentMatchers::KindOf</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers/MatcherMatcher.html">RSpec::Mocks::ArgumentMatchers::MatcherMatcher</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers/NoArgsMatcher.html">RSpec::Mocks::ArgumentMatchers::NoArgsMatcher</a></li>
+        
+          <li><a href="../RSpec/Mocks/ArgumentMatchers/RegexpMatcher.html">RSpec::Mocks::ArgumentMatchers::RegexpMatcher</a></li>
+        
+          <li><a href="../RSpec/Mocks/Constant.html">RSpec::Mocks::Constant</a></li>
+        
+          <li><a href="../RSpec/Mocks/ConstantStubber.html">RSpec::Mocks::ConstantStubber</a></li>
+        
+          <li><a href="../RSpec/Mocks/ConstantStubber/BaseStubber.html">RSpec::Mocks::ConstantStubber::BaseStubber</a></li>
+        
+          <li><a href="../RSpec/Mocks/ConstantStubber/DefinedConstantReplacer.html">RSpec::Mocks::ConstantStubber::DefinedConstantReplacer</a></li>
+        
+          <li><a href="../RSpec/Mocks/ConstantStubber/UndefinedConstantSetter.html">RSpec::Mocks::ConstantStubber::UndefinedConstantSetter</a></li>
+        
+          <li><a href="../RSpec/Mocks/ErrorGenerator.html">RSpec::Mocks::ErrorGenerator</a></li>
+        
+          <li><a href="../RSpec/Mocks/ExampleMethods.html">RSpec::Mocks::ExampleMethods</a></li>
+        
+          <li><a href="../RSpec/Mocks/InstanceExec.html">RSpec::Mocks::InstanceExec</a></li>
+        
+          <li><a href="../RSpec/Mocks/MessageExpectation.html">RSpec::Mocks::MessageExpectation</a></li>
+        
+          <li><a href="../RSpec/Mocks/MethodDouble.html">RSpec::Mocks::MethodDouble</a></li>
+        
+          <li><a href="../RSpec/Mocks/Methods.html">RSpec::Mocks::Methods</a></li>
+        
+          <li><a href="../RSpec/Mocks/Mock.html">RSpec::Mocks::Mock</a></li>
+        
+          <li><a href="../RSpec/Mocks/MockExpectationError.html">RSpec::Mocks::MockExpectationError</a></li>
+        
+          <li><a href="../RSpec/Mocks/NegativeMessageExpectation.html">RSpec::Mocks::NegativeMessageExpectation</a></li>
+        
+          <li><a href="../RSpec/Mocks/OrderGroup.html">RSpec::Mocks::OrderGroup</a></li>
+        
+          <li><a href="../RSpec/Mocks/Proxy.html">RSpec::Mocks::Proxy</a></li>
+        
+          <li><a href="../RSpec/Mocks/RecursiveConstMethods.html">RSpec::Mocks::RecursiveConstMethods</a></li>
+        
+          <li><a href="../RSpec/Mocks/Serialization.html">RSpec::Mocks::Serialization</a></li>
+        
+          <li><a href="../RSpec/Mocks/Serialization/YAML.html">RSpec::Mocks::Serialization::YAML</a></li>
+        
+          <li><a href="../RSpec/Mocks/Space.html">RSpec::Mocks::Space</a></li>
+        
+          <li><a href="../RSpec/Mocks/TestDouble.html">RSpec::Mocks::TestDouble</a></li>
+        
+          <li><a href="../RSpec/Mocks/Version.html">RSpec::Mocks::Version</a></li>
+        
+          <li><a href="../RSpec/Rake.html">RSpec::Rake</a></li>
+        
+          <li><a href="../RSpec/Runner.html">RSpec::Runner</a></li>
+        
+          <li><a href="../RDoc.html">RDoc</a></li>
+        
+          <li><a href="../RDoc/Alias.html">RDoc::Alias</a></li>
+        
+          <li><a href="../RDoc/AnonClass.html">RDoc::AnonClass</a></li>
+        
+          <li><a href="../RDoc/AnyMethod.html">RDoc::AnyMethod</a></li>
+        
+          <li><a href="../RDoc/Attr.html">RDoc::Attr</a></li>
+        
+          <li><a href="../RDoc/ClassModule.html">RDoc::ClassModule</a></li>
+        
+          <li><a href="../RDoc/CodeObject.html">RDoc::CodeObject</a></li>
+        
+          <li><a href="../RDoc/Comment.html">RDoc::Comment</a></li>
+        
+          <li><a href="../RDoc/Constant.html">RDoc::Constant</a></li>
+        
+          <li><a href="../RDoc/Context.html">RDoc::Context</a></li>
+        
+          <li><a href="../RDoc/Context/Section.html">RDoc::Context::Section</a></li>
+        
+          <li><a href="../RDoc/CrossReference.html">RDoc::CrossReference</a></li>
+        
+          <li><a href="../RDoc/ERBIO.html">RDoc::ERBIO</a></li>
+        
+          <li><a href="../RDoc/Encoding.html">RDoc::Encoding</a></li>
+        
+          <li><a href="../RDoc/Error.html">RDoc::Error</a></li>
+        
+          <li><a href="../RDoc/Gauntlet.html">RDoc::Gauntlet</a></li>
+        
+          <li><a href="../RDoc/Generator.html">RDoc::Generator</a></li>
+        
+          <li><a href="../RDoc/Generator/Darkfish.html">RDoc::Generator::Darkfish</a></li>
+        
+          <li><a href="../RDoc/Generator/JsonIndex.html">RDoc::Generator::JsonIndex</a></li>
+        
+          <li><a href="../RDoc/Generator/Markup.html">RDoc::Generator::Markup</a></li>
+        
+          <li><a href="../RDoc/Generator/RI.html">RDoc::Generator::RI</a></li>
+        
+          <li><a href="../RDoc/Generator/Rubydoc.html">RDoc::Generator::Rubydoc</a></li>
+        
+          <li><a href="../RDoc/GhostMethod.html">RDoc::GhostMethod</a></li>
+        
+          <li><a href="../RDoc/Include.html">RDoc::Include</a></li>
+        
+          <li><a href="../RDoc/Markup.html">RDoc::Markup</a></li>
+        
+          <li><a href="../RDoc/Markup/AttrChanger.html">RDoc::Markup::AttrChanger</a></li>
+        
+          <li><a href="../RDoc/Markup/AttrSpan.html">RDoc::Markup::AttrSpan</a></li>
+        
+          <li><a href="../RDoc/Markup/Attribute.html">RDoc::Markup::Attribute</a></li>
+        
+          <li><a href="../RDoc/Markup/AttributeManager.html">RDoc::Markup::AttributeManager</a></li>
+        
+          <li><a href="../RDoc/Markup/BlankLine.html">RDoc::Markup::BlankLine</a></li>
+        
+          <li><a href="../RDoc/Markup/Document.html">RDoc::Markup::Document</a></li>
+        
+          <li><a href="../RDoc/Markup/Formatter.html">RDoc::Markup::Formatter</a></li>
+        
+          <li><a href="../RDoc/Markup/FormatterTestCase.html">RDoc::Markup::FormatterTestCase</a></li>
+        
+          <li><a href="../RDoc/Markup/Heading.html">RDoc::Markup::Heading</a></li>
+        
+          <li><a href="../RDoc/Markup/Include.html">RDoc::Markup::Include</a></li>
+        
+          <li><a href="../RDoc/Markup/IndentedParagraph.html">RDoc::Markup::IndentedParagraph</a></li>
+        
+          <li><a href="../RDoc/Markup/List.html">RDoc::Markup::List</a></li>
+        
+          <li><a href="../RDoc/Markup/ListItem.html">RDoc::Markup::ListItem</a></li>
+        
+          <li><a href="../RDoc/Markup/Paragraph.html">RDoc::Markup::Paragraph</a></li>
+        
+          <li><a href="../RDoc/Markup/Parser.html">RDoc::Markup::Parser</a></li>
+        
+          <li><a href="../RDoc/Markup/Parser/Error.html">RDoc::Markup::Parser::Error</a></li>
+        
+          <li><a href="../RDoc/Markup/Parser/ParseError.html">RDoc::Markup::Parser::ParseError</a></li>
+        
+          <li><a href="../RDoc/Markup/PreProcess.html">RDoc::Markup::PreProcess</a></li>
+        
+          <li><a href="../RDoc/Markup/Raw.html">RDoc::Markup::Raw</a></li>
+        
+          <li><a href="../RDoc/Markup/Rule.html">RDoc::Markup::Rule</a></li>
+        
+          <li><a href="../RDoc/Markup/Special.html">RDoc::Markup::Special</a></li>
+        
+          <li><a href="../RDoc/Markup/TextFormatterTestCase.html">RDoc::Markup::TextFormatterTestCase</a></li>
+        
+          <li><a href="../RDoc/Markup/ToAnsi.html">RDoc::Markup::ToAnsi</a></li>
+        
+          <li><a href="../RDoc/Markup/ToBs.html">RDoc::Markup::ToBs</a></li>
+        
+          <li><a href="../RDoc/Markup/ToHtml.html">RDoc::Markup::ToHtml</a></li>
+        
+          <li><a href="../RDoc/Markup/ToHtmlCrossref.html">RDoc::Markup::ToHtmlCrossref</a></li>
+        
+          <li><a href="../RDoc/Markup/ToHtmlSnippet.html">RDoc::Markup::ToHtmlSnippet</a></li>
+        
+          <li><a href="../RDoc/Markup/ToLabel.html">RDoc::Markup::ToLabel</a></li>
+        
+          <li><a href="../RDoc/Markup/ToRdoc.html">RDoc::Markup::ToRdoc</a></li>
+        
+          <li><a href="../RDoc/Markup/ToTableOfContents.html">RDoc::Markup::ToTableOfContents</a></li>
+        
+          <li><a href="../RDoc/Markup/ToTest.html">RDoc::Markup::ToTest</a></li>
+        
+          <li><a href="../RDoc/Markup/ToTtOnly.html">RDoc::Markup::ToTtOnly</a></li>
+        
+          <li><a href="../RDoc/Markup/Verbatim.html">RDoc::Markup::Verbatim</a></li>
+        
+          <li><a href="../RDoc/MetaMethod.html">RDoc::MetaMethod</a></li>
+        
+          <li><a href="../RDoc/MethodAttr.html">RDoc::MethodAttr</a></li>
+        
+          <li><a href="../RDoc/NormalClass.html">RDoc::NormalClass</a></li>
+        
+          <li><a href="../RDoc/NormalModule.html">RDoc::NormalModule</a></li>
+        
+          <li><a href="../RDoc/Options.html">RDoc::Options</a></li>
+        
+          <li><a href="../RDoc/Page.html">RDoc::Page</a></li>
+        
+          <li><a href="../RDoc/Parser.html">RDoc::Parser</a></li>
+        
+          <li><a href="../RDoc/Parser/C.html">RDoc::Parser::C</a></li>
+        
+          <li><a href="../RDoc/Parser/RD.html">RDoc::Parser::RD</a></li>
+        
+          <li><a href="../RDoc/Parser/Ruby.html">RDoc::Parser::Ruby</a></li>
+        
+          <li><a href="../RDoc/Parser/RubyTools.html">RDoc::Parser::RubyTools</a></li>
+        
+          <li><a href="../RDoc/Parser/Simple.html">RDoc::Parser::Simple</a></li>
+        
+          <li><a href="../RDoc/Parser/Text.html">RDoc::Parser::Text</a></li>
+        
+          <li><a href="../RDoc/RD.html">RDoc::RD</a></li>
+        
+          <li><a href="../RDoc/RD/Inline.html">RDoc::RD::Inline</a></li>
+        
+          <li><a href="../RDoc/RDoc.html">RDoc::RDoc</a></li>
+        
+          <li><a href="../RDoc/RI.html">RDoc::RI</a></li>
+        
+          <li><a href="../RDoc/RI/Driver.html">RDoc::RI::Driver</a></li>
+        
+          <li><a href="../RDoc/RI/Driver/Error.html">RDoc::RI::Driver::Error</a></li>
+        
+          <li><a href="../RDoc/RI/Driver/NotFoundError.html">RDoc::RI::Driver::NotFoundError</a></li>
+        
+          <li><a href="../RDoc/RI/Error.html">RDoc::RI::Error</a></li>
+        
+          <li><a href="../RDoc/RI/Paths.html">RDoc::RI::Paths</a></li>
+        
+          <li><a href="../RDoc/RI/Store.html">RDoc::RI::Store</a></li>
+        
+          <li><a href="../RDoc/Require.html">RDoc::Require</a></li>
+        
+          <li><a href="../RDoc/RubyLex.html">RDoc::RubyLex</a></li>
+        
+          <li><a href="../RDoc/RubyLex/Error.html">RDoc::RubyLex::Error</a></li>
+        
+          <li><a href="../RDoc/RubyToken.html">RDoc::RubyToken</a></li>
+        
+          <li><a href="../RDoc/RubyToken/TkError.html">RDoc::RubyToken::TkError</a></li>
+        
+          <li><a href="../RDoc/RubyToken/TkId.html">RDoc::RubyToken::TkId</a></li>
+        
+          <li><a href="../RDoc/RubyToken/TkKW.html">RDoc::RubyToken::TkKW</a></li>
+        
+          <li><a href="../RDoc/RubyToken/TkNode.html">RDoc::RubyToken::TkNode</a></li>
+        
+          <li><a href="../RDoc/RubyToken/TkOPASGN.html">RDoc::RubyToken::TkOPASGN</a></li>
+        
+          <li><a href="../RDoc/RubyToken/TkOp.html">RDoc::RubyToken::TkOp</a></li>
+        
+          <li><a href="../RDoc/RubyToken/TkSYMBOL.html">RDoc::RubyToken::TkSYMBOL</a></li>
+        
+          <li><a href="../RDoc/RubyToken/TkUnknownChar.html">RDoc::RubyToken::TkUnknownChar</a></li>
+        
+          <li><a href="../RDoc/RubyToken/TkVal.html">RDoc::RubyToken::TkVal</a></li>
+        
+          <li><a href="../RDoc/RubyToken/Token.html">RDoc::RubyToken::Token</a></li>
+        
+          <li><a href="../RDoc/RubygemsHook.html">RDoc::RubygemsHook</a></li>
+        
+          <li><a href="../RDoc/SingleClass.html">RDoc::SingleClass</a></li>
+        
+          <li><a href="../RDoc/Stats.html">RDoc::Stats</a></li>
+        
+          <li><a href="../RDoc/Stats/Normal.html">RDoc::Stats::Normal</a></li>
+        
+          <li><a href="../RDoc/Stats/Quiet.html">RDoc::Stats::Quiet</a></li>
+        
+          <li><a href="../RDoc/Stats/Verbose.html">RDoc::Stats::Verbose</a></li>
+        
+          <li><a href="../RDoc/Task.html">RDoc::Task</a></li>
+        
+          <li><a href="../RDoc/Task.html">RDoc::Task</a></li>
+        
+          <li><a href="../RDoc/TestCase.html">RDoc::TestCase</a></li>
+        
+          <li><a href="../RDoc/TokenStream.html">RDoc::TokenStream</a></li>
+        
+          <li><a href="../RDoc/TomDoc.html">RDoc::TomDoc</a></li>
+        
+          <li><a href="../RDoc/TopLevel.html">RDoc::TopLevel</a></li>
+        
+          <li><a href="../JSON.html">JSON</a></li>
+        
+          <li><a href="../JSON/CircularDatastructure.html">JSON::CircularDatastructure</a></li>
+        
+          <li><a href="../JSON/Ext.html">JSON::Ext</a></li>
+        
+          <li><a href="../JSON/Ext/Generator.html">JSON::Ext::Generator</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/GeneratorMethods.html">JSON::Ext::Generator::GeneratorMethods</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/GeneratorMethods/Array.html">JSON::Ext::Generator::GeneratorMethods::Array</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/GeneratorMethods/Bignum.html">JSON::Ext::Generator::GeneratorMethods::Bignum</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/GeneratorMethods/FalseClass.html">JSON::Ext::Generator::GeneratorMethods::FalseClass</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/GeneratorMethods/Fixnum.html">JSON::Ext::Generator::GeneratorMethods::Fixnum</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/GeneratorMethods/Float.html">JSON::Ext::Generator::GeneratorMethods::Float</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/GeneratorMethods/Hash.html">JSON::Ext::Generator::GeneratorMethods::Hash</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/GeneratorMethods/NilClass.html">JSON::Ext::Generator::GeneratorMethods::NilClass</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/GeneratorMethods/Object.html">JSON::Ext::Generator::GeneratorMethods::Object</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/GeneratorMethods/String.html">JSON::Ext::Generator::GeneratorMethods::String</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/GeneratorMethods/String/Extend.html">JSON::Ext::Generator::GeneratorMethods::String::Extend</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/GeneratorMethods/TrueClass.html">JSON::Ext::Generator::GeneratorMethods::TrueClass</a></li>
+        
+          <li><a href="../JSON/Ext/Generator/State.html">JSON::Ext::Generator::State</a></li>
+        
+          <li><a href="../JSON/Ext/Parser.html">JSON::Ext::Parser</a></li>
+        
+          <li><a href="../JSON/GeneratorError.html">JSON::GeneratorError</a></li>
+        
+          <li><a href="../JSON/GenericObject.html">JSON::GenericObject</a></li>
+        
+          <li><a href="../JSON/JSONError.html">JSON::JSONError</a></li>
+        
+          <li><a href="../JSON/MissingUnicodeSupport.html">JSON::MissingUnicodeSupport</a></li>
+        
+          <li><a href="../JSON/NestingError.html">JSON::NestingError</a></li>
+        
+          <li><a href="../JSON/ParserError.html">JSON::ParserError</a></li>
+        
+          <li><a href="../JSON/Pure.html">JSON::Pure</a></li>
+        
+          <li><a href="../JSON/Pure/Generator.html">JSON::Pure::Generator</a></li>
+        
+          <li><a href="../JSON/Pure/Generator/GeneratorMethods.html">JSON::Pure::Generator::GeneratorMethods</a></li>
+        
+          <li><a href="../JSON/Pure/Generator/GeneratorMethods/Array.html">JSON::Pure::Generator::GeneratorMethods::Array</a></li>
+        
+          <li><a href="../JSON/Pure/Generator/GeneratorMethods/FalseClass.html">JSON::Pure::Generator::GeneratorMethods::FalseClass</a></li>
+        
+          <li><a href="../JSON/Pure/Generator/GeneratorMethods/Float.html">JSON::Pure::Generator::GeneratorMethods::Float</a></li>
+        
+          <li><a href="../JSON/Pure/Generator/GeneratorMethods/Hash.html">JSON::Pure::Generator::GeneratorMethods::Hash</a></li>
+        
+          <li><a href="../JSON/Pure/Generator/GeneratorMethods/Integer.html">JSON::Pure::Generator::GeneratorMethods::Integer</a></li>
+        
+          <li><a href="../JSON/Pure/Generator/GeneratorMethods/NilClass.html">JSON::Pure::Generator::GeneratorMethods::NilClass</a></li>
+        
+          <li><a href="../JSON/Pure/Generator/GeneratorMethods/Object.html">JSON::Pure::Generator::GeneratorMethods::Object</a></li>
+        
+          <li><a href="../JSON/Pure/Generator/GeneratorMethods/String.html">JSON::Pure::Generator::GeneratorMethods::String</a></li>
+        
+          <li><a href="../JSON/Pure/Generator/GeneratorMethods/String/Extend.html">JSON::Pure::Generator::GeneratorMethods::String::Extend</a></li>
+        
+          <li><a href="../JSON/Pure/Generator/GeneratorMethods/TrueClass.html">JSON::Pure::Generator::GeneratorMethods::TrueClass</a></li>
+        
+          <li><a href="../JSON/Pure/Generator/State.html">JSON::Pure::Generator::State</a></li>
+        
+          <li><a href="../JSON/Pure/Parser.html">JSON::Pure::Parser</a></li>
+        
+          <li><a href="../JSON/GeneratorError.html">JSON::UnparserError</a></li>
+        
+          <li><a href="../Mongo.html">Mongo</a></li>
+        
+          <li><a href="../Mongo/AuthenticationError.html">Mongo::AuthenticationError</a></li>
+        
+          <li><a href="../Mongo/Collection.html">Mongo::Collection</a></li>
+        
+          <li><a href="../Mongo/Connection.html">Mongo::Connection</a></li>
+        
+          <li><a href="../Mongo/ConnectionError.html">Mongo::ConnectionError</a></li>
+        
+          <li><a href="../Mongo/ConnectionFailure.html">Mongo::ConnectionFailure</a></li>
+        
+          <li><a href="../Mongo/ConnectionTimeoutError.html">Mongo::ConnectionTimeoutError</a></li>
+        
+          <li><a href="../Mongo/Constants.html">Mongo::Constants</a></li>
+        
+          <li><a href="../Mongo/Conversions.html">Mongo::Conversions</a></li>
+        
+          <li><a href="../Mongo/Cursor.html">Mongo::Cursor</a></li>
+        
+          <li><a href="../Mongo/DB.html">Mongo::DB</a></li>
+        
+          <li><a href="../Mongo/Grid.html">Mongo::Grid</a></li>
+        
+          <li><a href="../Mongo/GridError.html">Mongo::GridError</a></li>
+        
+          <li><a href="../Mongo/GridExt.html">Mongo::GridExt</a></li>
+        
+          <li><a href="../Mongo/GridExt/InstanceMethods.html">Mongo::GridExt::InstanceMethods</a></li>
+        
+          <li><a href="../Mongo/GridFileNotFound.html">Mongo::GridFileNotFound</a></li>
+        
+          <li><a href="../Mongo/GridFileSystem.html">Mongo::GridFileSystem</a></li>
+        
+          <li><a href="../Mongo/GridIO.html">Mongo::GridIO</a></li>
+        
+          <li><a href="../Mongo/GridMD5Failure.html">Mongo::GridMD5Failure</a></li>
+        
+          <li><a href="../Mongo/InvalidNSName.html">Mongo::InvalidNSName</a></li>
+        
+          <li><a href="../Mongo/InvalidOperation.html">Mongo::InvalidOperation</a></li>
+        
+          <li><a href="../Mongo/InvalidSortValueError.html">Mongo::InvalidSortValueError</a></li>
+        
+          <li><a href="../Mongo/Logging.html">Mongo::Logging</a></li>
+        
+          <li><a href="../Mongo/MongoArgumentError.html">Mongo::MongoArgumentError</a></li>
+        
+          <li><a href="../Mongo/MongoDBError.html">Mongo::MongoDBError</a></li>
+        
+          <li><a href="../Mongo/MongoRubyError.html">Mongo::MongoRubyError</a></li>
+        
+          <li><a href="../Mongo/Networking.html">Mongo::Networking</a></li>
+        
+          <li><a href="../Mongo/Node.html">Mongo::Node</a></li>
+        
+          <li><a href="../Mongo/NodeWithTagsNotFound.html">Mongo::NodeWithTagsNotFound</a></li>
+        
+          <li><a href="../Mongo/OperationFailure.html">Mongo::OperationFailure</a></li>
+        
+          <li><a href="../Mongo/OperationTimeout.html">Mongo::OperationTimeout</a></li>
+        
+          <li><a href="../Mongo/Pool.html">Mongo::Pool</a></li>
+        
+          <li><a href="../Mongo/PoolManager.html">Mongo::PoolManager</a></li>
+        
+          <li><a href="../Mongo/ReplSetConnection.html">Mongo::ReplSetConnection</a></li>
+        
+          <li><a href="../Mongo/ReplicaSetConnectionError.html">Mongo::ReplicaSetConnectionError</a></li>
+        
+          <li><a href="../Mongo/SSLSocket.html">Mongo::SSLSocket</a></li>
+        
+          <li><a href="../Mongo/ServerVersion.html">Mongo::ServerVersion</a></li>
+        
+          <li><a href="../Mongo/Support.html">Mongo::Support</a></li>
+        
+          <li><a href="../Mongo/TCPSocket.html">Mongo::TCPSocket</a></li>
+        
+          <li><a href="../Mongo/URIParser.html">Mongo::URIParser</a></li>
+        
+          <li><a href="../Rake.html">Rake</a></li>
+        
+          <li><a href="../Rake/AltSystem.html">Rake::AltSystem</a></li>
+        
+          <li><a href="../Rake/Application.html">Rake::Application</a></li>
+        
+          <li><a href="../Rake/Cloneable.html">Rake::Cloneable</a></li>
+        
+          <li><a href="../Rake/CompositePublisher.html">Rake::CompositePublisher</a></li>
+        
+          <li><a href="../Rake/DSL.html">Rake::DSL</a></li>
+        
+          <li><a href="../Rake/DefaultLoader.html">Rake::DefaultLoader</a></li>
+        
+          <li><a href="../Rake/EarlyTime.html">Rake::EarlyTime</a></li>
+        
+          <li><a href="../Rake/FileCreationTask.html">Rake::FileCreationTask</a></li>
+        
+          <li><a href="../Rake/FileList.html">Rake::FileList</a></li>
+        
+          <li><a href="../Rake/FileTask.html">Rake::FileTask</a></li>
+        
+          <li><a href="../Rake/FileTask.html">Rake::FileTask</a></li>
+        
+          <li><a href="../Rake/FileUtilsExt.html">Rake::FileUtilsExt</a></li>
+        
+          <li><a href="../Rake/FtpFile.html">Rake::FtpFile</a></li>
+        
+          <li><a href="../Rake/FtpUploader.html">Rake::FtpUploader</a></li>
+        
+          <li><a href="../Rake/InvocationChain.html">Rake::InvocationChain</a></li>
+        
+          <li><a href="../Rake/InvocationChain/EmptyInvocationChain.html">Rake::InvocationChain::EmptyInvocationChain</a></li>
+        
+          <li><a href="../Rake/InvocationExceptionMixin.html">Rake::InvocationExceptionMixin</a></li>
+        
+          <li><a href="../Rake/MakefileLoader.html">Rake::MakefileLoader</a></li>
+        
+          <li><a href="../Rake/MultiTask.html">Rake::MultiTask</a></li>
+        
+          <li><a href="../Rake/NameSpace.html">Rake::NameSpace</a></li>
+        
+          <li><a href="../Rake/PackageTask.html">Rake::PackageTask</a></li>
+        
+          <li><a href="../Rake/PseudoStatus.html">Rake::PseudoStatus</a></li>
+        
+          <li><a href="../Rake/RubyForgePublisher.html">Rake::RubyForgePublisher</a></li>
+        
+          <li><a href="../Rake/RuleRecursionOverflowError.html">Rake::RuleRecursionOverflowError</a></li>
+        
+          <li><a href="../Rake/SshDirPublisher.html">Rake::SshDirPublisher</a></li>
+        
+          <li><a href="../Rake/SshFilePublisher.html">Rake::SshFilePublisher</a></li>
+        
+          <li><a href="../Rake/SshFreshDirPublisher.html">Rake::SshFreshDirPublisher</a></li>
+        
+          <li><a href="../Rake/Task.html">Rake::Task</a></li>
+        
+          <li><a href="../Rake/Task.html">Rake::Task</a></li>
+        
+          <li><a href="../Rake/TaskArgumentError.html">Rake::TaskArgumentError</a></li>
+        
+          <li><a href="../Rake/TaskArguments.html">Rake::TaskArguments</a></li>
+        
+          <li><a href="../Rake/TaskLib.html">Rake::TaskLib</a></li>
+        
+          <li><a href="../Rake/TaskManager.html">Rake::TaskManager</a></li>
+        
+          <li><a href="../Rake/TestCase.html">Rake::TestCase</a></li>
+        
+          <li><a href="../Rake/TestCase/TaskManager.html">Rake::TestCase::TaskManager</a></li>
+        
+          <li><a href="../Rake/TestTask.html">Rake::TestTask</a></li>
+        
+          <li><a href="../Rake/Win32.html">Rake::Win32</a></li>
+        
+          <li><a href="../Rake/Win32/Win32HomeError.html">Rake::Win32::Win32HomeError</a></li>
+        
+          <li><a href="../BSON.html">BSON</a></li>
+        
+          <li><a href="../BSON/BSONError.html">BSON::BSONError</a></li>
+        
+          <li><a href="../BSON/BSON_C.html">BSON::BSON_C</a></li>
+        
+          <li><a href="../BSON/BSON_JAVA.html">BSON::BSON_JAVA</a></li>
+        
+          <li><a href="../BSON/BSON_RUBY.html">BSON::BSON_RUBY</a></li>
+        
+          <li><a href="../BSON/Binary.html">BSON::Binary</a></li>
+        
+          <li><a href="../BSON/ByteBuffer.html">BSON::ByteBuffer</a></li>
+        
+          <li><a href="../BSON/Code.html">BSON::Code</a></li>
+        
+          <li><a href="../BSON/DBRef.html">BSON::DBRef</a></li>
+        
+          <li><a href="../BSON/InvalidDocument.html">BSON::InvalidDocument</a></li>
+        
+          <li><a href="../BSON/InvalidKeyName.html">BSON::InvalidKeyName</a></li>
+        
+          <li><a href="../BSON/InvalidObjectId.html">BSON::InvalidObjectId</a></li>
+        
+          <li><a href="../BSON/InvalidStringEncoding.html">BSON::InvalidStringEncoding</a></li>
+        
+          <li><a href="../BSON/MaxKey.html">BSON::MaxKey</a></li>
+        
+          <li><a href="../BSON/MinKey.html">BSON::MinKey</a></li>
+        
+          <li><a href="../BSON/MongoDBError.html">BSON::MongoDBError</a></li>
+        
+          <li><a href="../BSON/MongoRubyError.html">BSON::MongoRubyError</a></li>
+        
+          <li><a href="../BSON/ObjectId.html">BSON::ObjectId</a></li>
+        
+          <li><a href="../BSON/OrderedHash.html">BSON::OrderedHash</a></li>
+        
+          <li><a href="../BSON/Timestamp.html">BSON::Timestamp</a></li>
+        
+          <li><a href="../SimpleCov.html">SimpleCov</a></li>
+        
+          <li><a href="../SimpleCov/Adapters.html">SimpleCov::Adapters</a></li>
+        
+          <li><a href="../SimpleCov/ArrayMergeHelper.html">SimpleCov::ArrayMergeHelper</a></li>
+        
+          <li><a href="../SimpleCov/BlockFilter.html">SimpleCov::BlockFilter</a></li>
+        
+          <li><a href="../SimpleCov/CommandGuesser.html">SimpleCov::CommandGuesser</a></li>
+        
+          <li><a href="../SimpleCov/Configuration.html">SimpleCov::Configuration</a></li>
+        
+          <li><a href="../SimpleCov/CoverageDataError.html">SimpleCov::CoverageDataError</a></li>
+        
+          <li><a href="../SimpleCov/FileList.html">SimpleCov::FileList</a></li>
+        
+          <li><a href="../SimpleCov/Filter.html">SimpleCov::Filter</a></li>
+        
+          <li><a href="../SimpleCov/Formatter.html">SimpleCov::Formatter</a></li>
+        
+          <li><a href="../SimpleCov/Formatter/HTMLFormatter.html">SimpleCov::Formatter::HTMLFormatter</a></li>
+        
+          <li><a href="../SimpleCov/Formatter/SimpleFormatter.html">SimpleCov::Formatter::SimpleFormatter</a></li>
+        
+          <li><a href="../SimpleCov/HashMergeHelper.html">SimpleCov::HashMergeHelper</a></li>
+        
+          <li><a href="../SimpleCov/Railtie.html">SimpleCov::Railtie</a></li>
+        
+          <li><a href="../SimpleCov/Result.html">SimpleCov::Result</a></li>
+        
+          <li><a href="../SimpleCov/ResultMerger.html">SimpleCov::ResultMerger</a></li>
+        
+          <li><a href="../SimpleCov/SourceFile.html">SimpleCov::SourceFile</a></li>
+        
+          <li><a href="../SimpleCov/SourceFile/Line.html">SimpleCov::SourceFile::Line</a></li>
+        
+          <li><a href="../SimpleCov/StringFilter.html">SimpleCov::StringFilter</a></li>
+        
+          <li><a href="../Diff.html">Diff</a></li>
+        
+          <li><a href="../Diff/LCS.html">Diff::LCS</a></li>
+        
+          <li><a href="../Diff/LCS/DefaultCallbacks.html">Diff::LCS::BalancedCallbacks</a></li>
+        
+          <li><a href="../Diff/LCS/Block.html">Diff::LCS::Block</a></li>
+        
+          <li><a href="../Diff/LCS/Change.html">Diff::LCS::Change</a></li>
+        
+          <li><a href="../Diff/LCS/ChangeTypeTests.html">Diff::LCS::ChangeTypeTests</a></li>
+        
+          <li><a href="../Diff/LCS/ContextChange.html">Diff::LCS::ContextChange</a></li>
+        
+          <li><a href="../Diff/LCS/ContextDiffCallbacks.html">Diff::LCS::ContextDiffCallbacks</a></li>
+        
+          <li><a href="../Diff/LCS/DefaultCallbacks.html">Diff::LCS::DefaultCallbacks</a></li>
+        
+          <li><a href="../Diff/LCS/DiffCallbacks.html">Diff::LCS::DiffCallbacks</a></li>
+        
+          <li><a href="../Diff/LCS/HTMLDiff.html">Diff::LCS::HTMLDiff</a></li>
+        
+          <li><a href="../Diff/LCS/HTMLDiff/Callbacks.html">Diff::LCS::HTMLDiff::Callbacks</a></li>
+        
+          <li><a href="../Diff/LCS/Hunk.html">Diff::LCS::Hunk</a></li>
+        
+          <li><a href="../Diff/LCS/Ldiff.html">Diff::LCS::Ldiff</a></li>
+        
+          <li><a href="../Diff/LCS/SDiffCallbacks.html">Diff::LCS::SDiffCallbacks</a></li>
+        
+          <li><a href="../Diff/LCS/DefaultCallbacks.html">Diff::LCS::SequenceCallbacks</a></li>
+        
+          <li><a href="../Diff/LCS/SpecHelper.html">Diff::LCS::SpecHelper</a></li>
+        
+          <li><a href="../Diff/LCS/SpecHelper/Matchers.html">Diff::LCS::SpecHelper::Matchers</a></li>
+        
+          <li><a href="../MultiJson.html">MultiJson</a></li>
+        
+          <li><a href="../MultiJson/Adapters.html">MultiJson::Adapters</a></li>
+        
+          <li><a href="../MultiJson/Adapters/JsonCommon.html">MultiJson::Adapters::JsonCommon</a></li>
+        
+          <li><a href="../MultiJson/Adapters/JsonGem.html">MultiJson::Adapters::JsonGem</a></li>
+        
+          <li><a href="../JSON/ParserError.html">MultiJson::Adapters::JsonGem::ParseError</a></li>
+        
+          <li><a href="../MultiJson/Adapters/JsonPure.html">MultiJson::Adapters::JsonPure</a></li>
+        
+          <li><a href="../JSON/ParserError.html">MultiJson::Adapters::JsonPure::ParseError</a></li>
+        
+          <li><a href="../MultiJson/Adapters/Nsjsonserialization.html">MultiJson::Adapters::Nsjsonserialization</a></li>
+        
+          <li><a href="../MultiJson/OkJson/Error.html">MultiJson::Adapters::Nsjsonserialization::ParseError</a></li>
+        
+          <li><a href="../MultiJson/Adapters/Oj.html">MultiJson::Adapters::Oj</a></li>
+        
+          <li><a href="../MultiJson/Adapters/OkJson.html">MultiJson::Adapters::OkJson</a></li>
+        
+          <li><a href="../MultiJson/OkJson/Error.html">MultiJson::Adapters::OkJson::ParseError</a></li>
+        
+          <li><a href="../MultiJson/Adapters/Yajl.html">MultiJson::Adapters::Yajl</a></li>
+        
+          <li><a href="../MultiJson/DecodeError.html">MultiJson::DecodeError</a></li>
+        
+          <li><a href="../MultiJson/OkJson.html">MultiJson::OkJson</a></li>
+        
+          <li><a href="../MultiJson/OkJson/Error.html">MultiJson::OkJson::Error</a></li>
+        
+          <li><a href="../MultiJson/OkJson/Utf8Error.html">MultiJson::OkJson::Utf8Error</a></li>
+        
+          <li><a href="../TestJSONAddition.html">TestJSONAddition</a></li>
+        
+          <li><a href="../TestJSONAddition/A.html">TestJSONAddition::A</a></li>
+        
+          <li><a href="../TestJSONAddition/A2.html">TestJSONAddition::A2</a></li>
+        
+          <li><a href="../TestJSONAddition/B.html">TestJSONAddition::B</a></li>
+        
+          <li><a href="../TestJSONAddition/C.html">TestJSONAddition::C</a></li>
+        
+          <li><a href="../ActiveSupport.html">ActiveSupport</a></li>
+        
+          <li><a href="../ActiveSupport/HashWithIndifferentAccess.html">ActiveSupport::HashWithIndifferentAccess</a></li>
+        
+          <li><a href="../ActiveSupport/HashWithIndifferentAccess.html">ActiveSupport::HashWithIndifferentAccess</a></li>
+        
+          <li><a href="../Duality.html">Duality</a></li>
+        
+          <li><a href="../Duality/CacheTimeout.html">Duality::CacheTimeout</a></li>
+        
+          <li><a href="../Duality/NotACache.html">Duality::NotACache</a></li>
+        
+          <li><a href="../MetaMagic.html">MetaMagic</a></li>
+        
+          <li><a href="../MetaMagic/ClassMethods.html">MetaMagic::ClassMethods</a></li>
+        
+          <li><a href="../MetaMagic/InstanceMethods.html">MetaMagic::InstanceMethods</a></li>
+        
+          <li><a href="../RDocRubydoc.html">RDocRubydoc</a></li>
+        
+          <li><a href="../RDocRubydoc/Documented.html">RDocRubydoc::Documented</a></li>
+        
+          <li><a href="../RDocRubydoc/NotDocumented.html">RDocRubydoc::NotDocumented</a></li>
+        
+          <li><a href="../Test.html">Test</a></li>
+        
+          <li><a href="../Test/Unit.html">Test::Unit</a></li>
+        
+          <li><a href="../Test/Unit/TestCase.html">Test::Unit::TestCase</a></li>
+        
+          <li><a href="../TestRakeExtension.html">TestRakeExtension</a></li>
+        
+          <li><a href="../TestRakeExtension/Redirect.html">TestRakeExtension::Redirect</a></li>
+        
+          <li><a href="../TestRakeExtension/Sample.html">TestRakeExtension::Sample</a></li>
+        
+          <li><a href="../Autotest.html">Autotest</a></li>
+        
+          <li><a href="../Autotest/Rspec2.html">Autotest::Rspec2</a></li>
+        
+          <li><a href="../Diskcached.html">Diskcached</a></li>
+        
+          <li><a href="../Diskcached/NotFound.html">Diskcached::NotFound</a></li>
+        
+          <li><a href="../Mod2.html">Mod2</a></li>
+        
+          <li><a href="../Mod1.html">Mod2::Mod3</a></li>
+        
+          <li><a href="../Mongocached.html">Mongocached</a></li>
+        
+          <li><a href="../Mongocached/NotFound.html">Mongocached::NotFound</a></li>
+        
+          <li><a href="../Object.html">Object</a></li>
+        
+          <li><a href="../ActiveSupport/HashWithIndifferentAccess.html">Object::HashWithIndifferentAccess</a></li>
+        
+          <li><a href="../TestCollection.html">TestCollection</a></li>
+        
+          <li><a href="../TestCollection/TestPK.html">TestCollection::TestPK</a></li>
+        
+          <li><a href="../TestJSONStringMatching.html">TestJSONStringMatching</a></li>
+        
+          <li><a href="../TestJSONStringMatching/TestTime.html">TestJSONStringMatching::TestTime</a></li>
+        
+          <li><a href="../TestRakeDsl.html">TestRakeDsl</a></li>
+        
+          <li><a href="../TestRakeDsl/Foo.html">TestRakeDsl::Foo</a></li>
+        
+          <li><a href="../TestRakeFileList.html">TestRakeFileList</a></li>
+        
+          <li><a href="../Rake/FileList.html">TestRakeFileList::FileList</a></li>
+        
+          <li><a href="../TestRakeFileUtils.html">TestRakeFileUtils</a></li>
+        
+          <li><a href="../TestRakeFileUtils/BadLink.html">TestRakeFileUtils::BadLink</a></li>
+        
+          <li><a href="../TestRakeNameSpace.html">TestRakeNameSpace</a></li>
+        
+          <li><a href="../TestRakeNameSpace/TM.html">TestRakeNameSpace::TM</a></li>
+        
+          <li><a href="../TestRakeWin32.html">TestRakeWin32</a></li>
+        
+          <li><a href="../Rake/Win32.html">TestRakeWin32::Win32</a></li>
+        
+          <li><a href="../Array.html">Array</a></li>
+        
+          <li><a href="../AuthReplSetManager.html">AuthReplSetManager</a></li>
+        
+          <li><a href="../AuthTest.html">AuthTest</a></li>
+        
+          <li><a href="../AuthenticationTest.html">AuthenticationTest</a></li>
+        
+          <li><a href="../AutoreconnectTest.html">AutoreconnectTest</a></li>
+        
+          <li><a href="../BasicTest.html">BasicTest</a></li>
+        
+          <li><a href="../BigDecimal.html">BigDecimal</a></li>
+        
+          <li><a href="../BinaryTest.html">BinaryTest</a></li>
+        
+          <li><a href="../ByteBufferTest.html">ByteBufferTest</a></li>
+        
+          <li><a href="../CBson.html">CBson</a></li>
+        
+          <li><a href="../Class.html">Class</a></li>
+        
+          <li><a href="../CollectionTest.html">CollectionTest</a></li>
+        
+          <li><a href="../Complex.html">Complex</a></li>
+        
+          <li><a href="../ComplexConnectTest.html">ComplexConnectTest</a></li>
+        
+          <li><a href="../CompositePublisher.html">CompositePublisher</a></li>
+        
+          <li><a href="../ConnectTest.html">ConnectTest</a></li>
+        
+          <li><a href="../ConnectionTest.html">ConnectionTest</a></li>
+        
+          <li><a href="../ConversionsTest.html">ConversionsTest</a></li>
+        
+          <li><a href="../CursorFailTest.html">CursorFailTest</a></li>
+        
+          <li><a href="../CursorMessageTest.html">CursorMessageTest</a></li>
+        
+          <li><a href="../CursorTest.html">CursorTest</a></li>
+        
+          <li><a href="../DBAPITest.html">DBAPITest</a></li>
+        
+          <li><a href="../DBConnectionTest.html">DBConnectionTest</a></li>
+        
+          <li><a href="../DBTest.html">DBTest</a></li>
+        
+          <li><a href="../Date.html">Date</a></li>
+        
+          <li><a href="../DateTime.html">DateTime</a></li>
+        
+          <li><a href="../Exception.html">Exception</a></li>
+        
+          <li><a href="../FakeDate.html">FakeDate</a></li>
+        
+          <li><a href="../FakedProject.html">FakedProject</a></li>
+        
+          <li><a href="../FakedTest.html">FakedTest</a></li>
+        
+          <li><a href="../Features14Test.html">Features14Test</a></li>
+        
+          <li><a href="../FileCreation.html">FileCreation</a></li>
+        
+          <li><a href="../FileUtils.html">FileUtils</a></li>
+        
+          <li><a href="../Foo.html">Foo</a></li>
+        
+          <li><a href="../FooTest.html">FooTest</a></li>
+        
+          <li><a href="../ForkTest.html">ForkTest</a></li>
+        
+          <li><a href="../FrameworkSpecific.html">FrameworkSpecific</a></li>
+        
+          <li><a href="../Fuzzer.html">Fuzzer</a></li>
+        
+          <li><a href="../GridFileSystemTest.html">GridFileSystemTest</a></li>
+        
+          <li><a href="../GridIOTest.html">GridIOTest</a></li>
+        
+          <li><a href="../GridTest.html">GridTest</a></li>
+        
+          <li><a href="../GroupHelpers.html">GroupHelpers</a></li>
+        
+          <li><a href="../Hash.html">Hash</a></li>
+        
+          <li><a href="../HashWithIndifferentAccessTest.html">HashWithIndifferentAccessTest</a></li>
+        
+          <li><a href="../JSONTest.html">JSONTest</a></li>
+        
+          <li><a href="../Kernel.html">Kernel</a></li>
+        
+          <li><a href="../Klass.html">Klass</a></li>
+        
+          <li><a href="../Load.html">Load</a></li>
+        
+          <li><a href="../Marshal.html">Marshal</a></li>
+        
+          <li><a href="../MetaMagicTest.html">MetaMagicTest</a></li>
+        
+          <li><a href="../Mod1.html">Mod1</a></li>
+        
+          <li><a href="../Mod3.html">Mod3</a></li>
+        
+          <li><a href="../Mod4.html">Mod4</a></li>
+        
+          <li><a href="../Module.html">Module</a></li>
+        
+          <li><a href="../Mutex.html">Mutex</a></li>
+        
+          <li><a href="../MyState.html">MyState</a></li>
+        
+          <li><a href="../NodeTest.html">NodeTest</a></li>
+        
+          <li><a href="../ObjectIdTest.html">ObjectIdTest</a></li>
+        
+          <li><a href="../OpenStruct.html">OpenStruct</a></li>
+        
+          <li><a href="../OrderedHashTest.html">OrderedHashTest</a></li>
+        
+          <li><a href="../PoolManagerTest.html">PoolManagerTest</a></li>
+        
+          <li><a href="../PoolTest.html">PoolTest</a></li>
+        
+          <li><a href="../Psych.html">Psych</a></li>
+        
+          <li><a href="../RDocRubydocNoContent.html">RDocRubydocNoContent</a></li>
+        
+          <li><a href="../RDocRubydocWithContent.html">RDocRubydocWithContent</a></li>
+        
+          <li><a href="../Range.html">Range</a></li>
+        
+          <li><a href="../Rational.html">Rational</a></li>
+        
+          <li><a href="../ReadPreferenceTest.html">ReadPreferenceTest</a></li>
+        
+          <li><a href="../ReadTest.html">ReadTest</a></li>
+        
+          <li><a href="../Regexp.html">Regexp</a></li>
+        
+          <li><a href="../ReplSetManager.html">ReplSetManager</a></li>
+        
+          <li><a href="../ReplicaSetAckTest.html">ReplicaSetAckTest</a></li>
+        
+          <li><a href="../ReplicaSetCountTest.html">ReplicaSetCountTest</a></li>
+        
+          <li><a href="../ReplicaSetInsertTest.html">ReplicaSetInsertTest</a></li>
+        
+          <li><a href="../ReplicaSetPooledInsertTest.html">ReplicaSetPooledInsertTest</a></li>
+        
+          <li><a href="../ReplicaSetQueryTest.html">ReplicaSetQueryTest</a></li>
+        
+          <li><a href="../ReplicaSetRefreshTest.html">ReplicaSetRefreshTest</a></li>
+        
+          <li><a href="../ReplicaSetRefreshWithThreadsTest.html">ReplicaSetRefreshWithThreadsTest</a></li>
+        
+          <li><a href="../Resultset.html">Resultset</a></li>
+        
+          <li><a href="../SafeTest.html">SafeTest</a></li>
+        
+          <li><a href="../ShouldaMacros.html">ShouldaMacros</a></li>
+        
+          <li><a href="../SlaveConnectionTest.html">SlaveConnectionTest</a></li>
+        
+          <li><a href="../SomeClass.html">SomeClass</a></li>
+        
+          <li><a href="../SomeClassTest.html">SomeClassTest</a></li>
+        
+          <li><a href="../SshDirPublisher.html">SshDirPublisher</a></li>
+        
+          <li><a href="../SshFilePublisher.html">SshFilePublisher</a></li>
+        
+          <li><a href="../SshFreshDirPublisher.html">SshFreshDirPublisher</a></li>
+        
+          <li><a href="../String.html">String</a></li>
+        
+          <li><a href="../Struct.html">Struct</a></li>
+        
+          <li><a href="../SupportTest.html">SupportTest</a></li>
+        
+          <li><a href="../Symbol.html">Symbol</a></li>
+        
+          <li><a href="../Sys.html">Sys</a></li>
+        
+          <li><a href="../Test18FallBacks.html">Test18FallBacks</a></li>
+        
+          <li><a href="../TestCommandGuesser.html">TestCommandGuesser</a></li>
+        
+          <li><a href="../TestConnection.html">TestConnection</a></li>
+        
+          <li><a href="../TestDeletedSource.html">TestDeletedSource</a></li>
+        
+          <li><a href="../TestFileList.html">TestFileList</a></li>
+        
+          <li><a href="../TestFilters.html">TestFilters</a></li>
+        
+          <li><a href="../TestJSONFixtures.html">TestJSONFixtures</a></li>
+        
+          <li><a href="../TestJSONGenerate.html">TestJSONGenerate</a></li>
+        
+          <li><a href="../TestJSONGenericObject.html">TestJSONGenericObject</a></li>
+        
+          <li><a href="../TestMergeHelpers.html">TestMergeHelpers</a></li>
+        
+          <li><a href="../TestPKFactory.html">TestPKFactory</a></li>
+        
+          <li><a href="../TestRDocGeneratorRubydoc.html">TestRDocGeneratorRubydoc</a></li>
+        
+          <li><a href="../TestRake.html">TestRake</a></li>
+        
+          <li><a href="../TestRakeApplication.html">TestRakeApplication</a></li>
+        
+          <li><a href="../TestRakeApplicationOptions.html">TestRakeApplicationOptions</a></li>
+        
+          <li><a href="../TestRakeClean.html">TestRakeClean</a></li>
+        
+          <li><a href="../TestRakeDefinitions.html">TestRakeDefinitions</a></li>
+        
+          <li><a href="../TestRakeDirectoryTask.html">TestRakeDirectoryTask</a></li>
+        
+          <li><a href="../TestRakeEarlyTime.html">TestRakeEarlyTime</a></li>
+        
+          <li><a href="../TestRakeFileCreationTask.html">TestRakeFileCreationTask</a></li>
+        
+          <li><a href="../TestRakeFileListPathMap.html">TestRakeFileListPathMap</a></li>
+        
+          <li><a href="../TestRakeFileTask.html">TestRakeFileTask</a></li>
+        
+          <li><a href="../TestRakeFtpFile.html">TestRakeFtpFile</a></li>
+        
+          <li><a href="../TestRakeFunctional.html">TestRakeFunctional</a></li>
+        
+          <li><a href="../TestRakeInvocationChain.html">TestRakeInvocationChain</a></li>
+        
+          <li><a href="../TestRakeMakefileLoader.html">TestRakeMakefileLoader</a></li>
+        
+          <li><a href="../TestRakeMultiTask.html">TestRakeMultiTask</a></li>
+        
+          <li><a href="../TestRakePackageTask.html">TestRakePackageTask</a></li>
+        
+          <li><a href="../TestRakePathMap.html">TestRakePathMap</a></li>
+        
+          <li><a href="../TestRakePathMapExplode.html">TestRakePathMapExplode</a></li>
+        
+          <li><a href="../TestRakePathMapPartial.html">TestRakePathMapPartial</a></li>
+        
+          <li><a href="../TestRakePseudoStatus.html">TestRakePseudoStatus</a></li>
+        
+          <li><a href="../TestRakeRDocTask.html">TestRakeRDocTask</a></li>
+        
+          <li><a href="../TestRakeRakeTestLoader.html">TestRakeRakeTestLoader</a></li>
+        
+          <li><a href="../TestRakeRequire.html">TestRakeRequire</a></li>
+        
+          <li><a href="../TestRakeRules.html">TestRakeRules</a></li>
+        
+          <li><a href="../TestRakeTask.html">TestRakeTask</a></li>
+        
+          <li><a href="../TestRakeTaskArgumentParsing.html">TestRakeTaskArgumentParsing</a></li>
+        
+          <li><a href="../TestRakeTaskArguments.html">TestRakeTaskArguments</a></li>
+        
+          <li><a href="../TestRakeTaskLib.html">TestRakeTaskLib</a></li>
+        
+          <li><a href="../TestRakeTaskManager.html">TestRakeTaskManager</a></li>
+        
+          <li><a href="../TestRakeTaskManagerArgumentResolution.html">TestRakeTaskManagerArgumentResolution</a></li>
+        
+          <li><a href="../TestRakeTaskWithArguments.html">TestRakeTaskWithArguments</a></li>
+        
+          <li><a href="../TestRakeTestTask.html">TestRakeTestTask</a></li>
+        
+          <li><a href="../TestRakeTopLevelFunctions.html">TestRakeTopLevelFunctions</a></li>
+        
+          <li><a href="../TestResult.html">TestResult</a></li>
+        
+          <li><a href="../TestReturnCodes.html">TestReturnCodes</a></li>
+        
+          <li><a href="../TestSourceFile.html">TestSourceFile</a></li>
+        
+          <li><a href="../TestSourceFileLine.html">TestSourceFileLine</a></li>
+        
+          <li><a href="../TestSys.html">TestSys</a></li>
+        
+          <li><a href="../TestThreading.html">TestThreading</a></li>
+        
+          <li><a href="../TestThreadingLargePool.html">TestThreadingLargePool</a></li>
+        
+          <li><a href="../TestTimeout.html">TestTimeout</a></li>
+        
+          <li><a href="../Time.html">Time</a></li>
+        
+          <li><a href="../TimestampTest.html">TimestampTest</a></li>
+        
+          <li><a href="../URITest.html">URITest</a></li>
+        
+          <li><a href="../WithinHelpers.html">WithinHelpers</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Mongo::Connection</h1>
+
+    <div id="description" class="description">
+      
+<p>Instantiates and manages self.connections to MongoDB.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+      <!-- Constants -->
+      <div id="constants-list" class="section">
+        <h3 class="section-header">Constants</h3>
+        <dl>
+        
+          <dt><a name="CONNECTION_OPTS">CONNECTION_OPTS</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="ConditionVariable">ConditionVariable</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="DEFAULT_HOST">DEFAULT_HOST</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="DEFAULT_PORT">DEFAULT_PORT</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="GENERIC_OPTS">GENERIC_OPTS</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="Mutex">Mutex</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="TCPSocket">TCPSocket</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+        </dl>
+      </div>
+      
+
+      
+      <!-- Attributes -->
+      <div id="attribute-method-details" class="method-section section">
+        <h3 class="section-header">Attributes</h3>
+
+        
+        <div id="auths-attribute-method" class="method-detail">
+          <a name="auths"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">auths</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="connect_timeout-attribute-method" class="method-detail">
+          <a name="connect_timeout"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">connect_timeout</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="host_to_try-attribute-method" class="method-detail">
+          <a name="host_to_try"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">host_to_try</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="logger-attribute-method" class="method-detail">
+          <a name="logger"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">logger</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="op_timeout-attribute-method" class="method-detail">
+          <a name="op_timeout"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">op_timeout</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="pool_size-attribute-method" class="method-detail">
+          <a name="pool_size"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">pool_size</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="pool_timeout-attribute-method" class="method-detail">
+          <a name="pool_timeout"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">pool_timeout</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="primary-attribute-method" class="method-detail">
+          <a name="primary"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">primary</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="primary_pool-attribute-method" class="method-detail">
+          <a name="primary_pool"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">primary_pool</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="safe-attribute-method" class="method-detail">
+          <a name="safe"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">safe</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="size-attribute-method" class="method-detail">
+          <a name="size"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">size</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+        <div id="socket_class-attribute-method" class="method-detail">
+          <a name="socket_class"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">socket_class</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
+      </div><!-- attribute-method-details -->
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="from_uri-method" class="method-detail ">
+          <a name="method-c-from_uri"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">from_uri</span><span
+              class="method-args">(uri = ENV['MONGODB_URI'], extra_opts={})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Initialize a connection to MongoDB using the MongoDB URI spec.</p>
+
+<p>Since <a href="Connection.html#method-c-new">::new</a> cannot be used with
+any <code>ENV["MONGODB_URI"]</code> that has multiple hosts (implying a
+replicaset), you may use this when the type of your connection varies by
+environment and should be determined solely from
+<code>ENV["MONGODB_URI"]</code>.</p>
+
+<p>@param uri [String]</p>
+
+<pre>A string of the format mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/database]</pre>
+
+<p>@param opts Any of the options available for <a
+href="Connection.html#method-c-new">::new</a></p>
+
+<p>@return [<a href="Connection.html">Mongo::Connection</a>,
+Mongo::ReplSetConnection]</p>
+            
+
+            
+            <div class="method-source-code" id="from_uri-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">from_uri</span>(<span class="ruby-identifier">uri</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">'MONGODB_URI'</span>], <span class="ruby-identifier">extra_opts</span>={})
+  <span class="ruby-identifier">parser</span> = <span class="ruby-constant">URIParser</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">extra_opts</span>
+  <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">connection</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- from_uri-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- from_uri-method -->
+      
+        <div id="multi-method" class="method-detail ">
+          <a name="method-c-multi"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">multi</span><span
+              class="method-args">(nodes, opts={})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>DEPRECATED</p>
+
+<p>Initialize a connection to a MongoDB replica set using an array of seed
+nodes.</p>
+
+<p>The seed nodes specified will be used on the initial connection to the
+replica set, but note that this list of nodes will be replced by the list
+of canonical nodes returned by running the is_master command on the replica
+set.</p>
+
+<p>@param nodes [Array] An array of arrays, each of which specifies a host and
+port. @param opts [Hash] Any of the available options that can be passed to
+<a href="Connection.html#method-c-new">::new</a>.</p>
+
+<p>@option opts [String] :rs_name (nil) The name of the replica set to connect
+to. An exception will be</p>
+
+<pre>raised if unable to connect to a replica set with this name.</pre>
+
+<p>@option opts [Boolean] :read_secondary (false) When true, this connection
+object will pick a random slave</p>
+
+<pre>to send reads to.</pre>
+
+<p>@example</p>
+
+<pre>Mongo::Connection.multi([[&quot;db1.example.com&quot;, 27017], [&quot;db2.example.com&quot;, 27017]])</pre>
+
+<p>@example This connection will read from a random secondary node.</p>
+
+<pre class="ruby"><span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">Connection</span>.<span class="ruby-identifier">multi</span>([[<span class="ruby-string">&quot;db1.example.com&quot;</span>, <span class="ruby-value">27017</span>], [<span class="ruby-string">&quot;db2.example.com&quot;</span>, <span class="ruby-value">27017</span>], [<span class="ruby-string">&quot;db3.example.com&quot;</span>, <span class="ruby-value">27017</span>]],
+                :<span class="ruby-identifier">read_secondary</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+</pre>
+
+<p>@return [Mongo::Connection]</p>
+
+<p>@deprecated</p>
+            
+
+            
+            <div class="method-source-code" id="multi-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">multi</span>(<span class="ruby-identifier">nodes</span>, <span class="ruby-identifier">opts</span>={})
+  <span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;Connection.multi is now deprecated and will be removed in v2.0. Please use ReplSetConnection.new instead.&quot;</span>
+
+  <span class="ruby-constant">ReplSetConnection</span>.<span class="ruby-identifier">new</span>(*(<span class="ruby-identifier">nodes</span><span class="ruby-operator">+</span>[<span class="ruby-identifier">opts</span>]))
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- multi-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- multi-method -->
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(host=nil, port=nil, opts={})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Create a connection to single MongoDB instance.</p>
+
+<p>If no args are provided, it will check <code>ENV["MONGODB_URI"]</code>.</p>
+
+<p>You may specify whether connection to slave is permitted. In all cases, the
+default host is "localhost" and the default port is 27017.</p>
+
+<p>If you're connecting to a replica set, you'll need to use <a
+href="ReplSetConnection.html#method-c-new">Mongo::ReplSetConnection.new</a>
+instead.</p>
+
+<p>Once connected to a replica set, you can find out which nodes are primary,
+secondary, and arbiters with the corresponding accessors: <a
+href="Connection.html#attribute-i-primary">#primary</a>,
+Connection#secondaries, and Connection#arbiters. This is useful if your
+application needs to connect manually to nodes other than the primary.</p>
+
+<p>@param [<a href="../String.html">String</a>, Hash] host @param [Integer]
+port specify a port number here if only one host is being specified.</p>
+
+<p>@option opts [Boolean, Hash] :safe (false) Set the default safe-mode
+options</p>
+
+<pre>propogated to DB objects instantiated off of this Connection. This
+default can be overridden upon instantiation of any DB by explicity setting a :safe value
+on initialization.</pre>
+
+<p>@option opts [Boolean] :slave_ok (false) Must be set to <code>true</code>
+when connecting</p>
+
+<pre>to a single, slave node.</pre>
+
+<p>@option opts [Logger, debug] :logger (nil) A Logger instance for debugging
+driver ops. Note that</p>
+
+<pre>logging negatively impacts performance; therefore, it should not be used for high-performance apps.</pre>
+
+<p>@option opts [Integer] :<a
+href="Connection.html#attribute-i-pool_size">#pool_size</a> (1) The maximum
+number of socket self.connections allowed per</p>
+
+<pre>connection pool. Note: this setting is relevant only for multi-threaded applications.</pre>
+
+<p>@option opts [Float] :timeout (5.0) When all of the self.connections a pool
+are checked out,</p>
+
+<pre>this is the number of seconds to wait for a new connection to be released before throwing an exception.
+Note: this setting is relevant only for multi-threaded applications (which in Ruby are rare).</pre>
+
+<p>@option opts [Float] :<a
+href="Connection.html#attribute-i-op_timeout">#op_timeout</a> (nil) The
+number of seconds to wait for a read operation to time out.</p>
+
+<pre>Disabled by default.</pre>
+
+<p>@option opts [Float] :<a
+href="Connection.html#attribute-i-connect_timeout">#connect_timeout</a>
+(nil) The number of seconds to wait before timing out a</p>
+
+<pre>connection attempt.</pre>
+
+<p>@option opts [Boolean] :ssl (false) If true, create the connection to the
+server using SSL.</p>
+
+<p>@example localhost, 27017 (or <code>ENV["MONGODB_URI"]</code> if available)</p>
+
+<pre>Mongo::Connection.new</pre>
+
+<p>@example localhost, 27017</p>
+
+<pre>Mongo::Connection.new(&quot;localhost&quot;)</pre>
+
+<p>@example localhost, 3000, max 5 self.connections, with max 5 seconds of
+wait time.</p>
+
+<pre class="ruby"><span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">Connection</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;localhost&quot;</span>, <span class="ruby-value">3000</span>, :<span class="ruby-identifier">pool_size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>, :<span class="ruby-identifier">timeout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>)
+</pre>
+
+<p>@example localhost, 3000, where this node may be a slave</p>
+
+<pre class="ruby"><span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">Connection</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;localhost&quot;</span>, <span class="ruby-value">3000</span>, :<span class="ruby-identifier">slave_ok</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+</pre>
+
+<p>@see <a
+href="http://api.mongodb.org/ruby/current/file.REPLICA_SETS.html">api.mongodb.org/ruby/current/file.REPLICA_SETS.html</a>
+Replica sets in Ruby</p>
+
+<p>@raise [ReplicaSetConnectionError] This is raised if a replica set name is
+specified and the</p>
+
+<pre>driver fails to connect to a replica set with that name.</pre>
+
+<p>@raise [MongoArgumentError] If called with no arguments and
+<code>ENV["MONGODB_URI"]</code> implies a replica set.</p>
+
+<p>@core self.connections</p>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">host</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">port</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">host</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">and</span> <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-string">'MONGODB_URI'</span>)
+    <span class="ruby-identifier">parser</span> = <span class="ruby-constant">URIParser</span>.<span class="ruby-identifier">new</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">'MONGODB_URI'</span>], <span class="ruby-identifier">opts</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">replicaset?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">MongoArgumentError</span>, <span class="ruby-string">&quot;Mongo::Connection.new called with no arguments, but ENV['MONGODB_URI'] implies a replica set.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">connection_options</span>
+    <span class="ruby-ivar">@host_to_try</span> = [<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">port</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">host</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-ivar">@host_to_try</span> = [<span class="ruby-identifier">host</span>, (<span class="ruby-identifier">port</span> <span class="ruby-operator">||</span> <span class="ruby-constant">DEFAULT_PORT</span>).<span class="ruby-identifier">to_i</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@host_to_try</span> = [<span class="ruby-constant">DEFAULT_HOST</span>, <span class="ruby-constant">DEFAULT_PORT</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Host and port of current master.</span>
+  <span class="ruby-ivar">@host</span> = <span class="ruby-ivar">@port</span> = <span class="ruby-keyword">nil</span>
+  
+  <span class="ruby-comment"># Default maximum BSON object size</span>
+  <span class="ruby-ivar">@max_bson_size</span> = <span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_MAX_BSON_SIZE</span>
+  
+  <span class="ruby-comment"># Lock for request ids.</span>
+  <span class="ruby-ivar">@id_lock</span> = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+  
+  <span class="ruby-comment"># Connection pool for primay node</span>
+  <span class="ruby-ivar">@primary</span>      = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@primary_pool</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">check_opts</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">setup</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="5B-5D-method" class="method-detail ">
+          <a name="method-i-5B-5D"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">[]</span><span
+              class="method-args">(db_name)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Shortcut for returning a database. Use DB#db to accept options.</p>
+
+<p>@param [String] db_name a valid database name.</p>
+
+<p>@return [Mongo::DB]</p>
+
+<p>@core databases []-instance_method</p>
+            
+
+            
+            <div class="method-source-code" id="5B-5D-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 325</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">db_name</span>)
+  <span class="ruby-constant">DB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">db_name</span>, <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- 5B-5D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- 5B-5D-method -->
+      
+        <div id="active-3F-method" class="method-detail ">
+          <a name="method-i-active-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">active?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Determine if the connection is active. In a normal case the <strong><a
+href="Connection.html#method-i-server_info">#server_info</a></strong>
+operation will be performed without issues, but if the connection was
+dropped by the server or for some reason the sockets are unsynchronized, a
+<a href="ConnectionFailure.html">ConnectionFailure</a> will be raised and
+the return will be false.</p>
+
+<p>@return [Boolean]</p>
+            
+
+            
+            <div class="method-source-code" id="active-3F-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 437</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">active?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">connected?</span>
+
+  <span class="ruby-identifier">ping</span>
+  <span class="ruby-keyword">true</span>
+
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ConnectionFailure</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- active-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- active-3F-method -->
+      
+        <div id="add_auth-method" class="method-detail ">
+          <a name="method-i-add_auth"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">add_auth</span><span
+              class="method-args">(db_name, username, password)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Save an authentication to this connection. When connecting, the connection
+will attempt to re-authenticate on every db specificed in the list of
+auths. This method is called automatically by <a
+href="DB.html#method-i-authenticate">Mongo::DB#authenticate</a>.</p>
+
+<p>Note: this method will not actually issue an authentication command. To do
+that, either run <a
+href="Connection.html#method-i-apply_saved_authentication">#apply_saved_authentication</a>
+or <a href="DB.html#method-i-authenticate">Mongo::DB#authenticate</a>.</p>
+
+<p>@param [String] db_name @param [String] username @param [String] password</p>
+
+<p>@return [Hash] a hash representing the authentication just added.</p>
+            
+
+            
+            <div class="method-source-code" id="add_auth-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_auth</span>(<span class="ruby-identifier">db_name</span>, <span class="ruby-identifier">username</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-identifier">remove_auth</span>(<span class="ruby-identifier">db_name</span>)
+  <span class="ruby-identifier">auth</span> = {}
+  <span class="ruby-identifier">auth</span>[<span class="ruby-string">'db_name'</span>]  = <span class="ruby-identifier">db_name</span>
+  <span class="ruby-identifier">auth</span>[<span class="ruby-string">'username'</span>] = <span class="ruby-identifier">username</span>
+  <span class="ruby-identifier">auth</span>[<span class="ruby-string">'password'</span>] = <span class="ruby-identifier">password</span>
+  <span class="ruby-ivar">@auths</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">auth</span>
+  <span class="ruby-identifier">auth</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- add_auth-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- add_auth-method -->
+      
+        <div id="apply_saved_authentication-method" class="method-detail ">
+          <a name="method-i-apply_saved_authentication"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">apply_saved_authentication</span><span
+              class="method-args">(opts={})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Apply each of the saved database authentications.</p>
+
+<p>@return [Boolean] returns true if authentications exist and succeeed, false</p>
+
+<pre>if none exists.</pre>
+
+<p>@raise [AuthenticationError] raises an exception if any one</p>
+
+<pre>authentication fails.</pre>
+            
+
+            
+            <div class="method-source-code" id="apply_saved_authentication-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 225</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">apply_saved_authentication</span>(<span class="ruby-identifier">opts</span>={})
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@auths</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-ivar">@auths</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">auth</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">self</span>[<span class="ruby-identifier">auth</span>[<span class="ruby-string">'db_name'</span>]].<span class="ruby-identifier">issue_authentication</span>(<span class="ruby-identifier">auth</span>[<span class="ruby-string">'username'</span>], <span class="ruby-identifier">auth</span>[<span class="ruby-string">'password'</span>], <span class="ruby-keyword">false</span>,
+      <span class="ruby-value">:socket</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:socket</span>])
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- apply_saved_authentication-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- apply_saved_authentication-method -->
+      
+        <div id="authenticate_pools-method" class="method-detail ">
+          <a name="method-i-authenticate_pools"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">authenticate_pools</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="authenticate_pools-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 279</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">authenticate_pools</span>
+  <span class="ruby-ivar">@primary_pool</span>.<span class="ruby-identifier">authenticate_existing</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- authenticate_pools-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- authenticate_pools-method -->
+      
+        <div id="best_available_socket-method" class="method-detail ">
+          <a name="method-i-best_available_socket"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">best_available_socket</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Excecutes block with the best available socket</p>
+            
+
+            
+            <div class="method-source-code" id="best_available_socket-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 527</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">best_available_socket</span>
+  <span class="ruby-identifier">socket</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">socket</span> = <span class="ruby-identifier">checkout_best</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">socket</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">socket</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">pool</span>.<span class="ruby-identifier">checkin</span>(<span class="ruby-identifier">socket</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- best_available_socket-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- best_available_socket-method -->
+      
+        <div id="checkin-method" class="method-detail ">
+          <a name="method-i-checkin"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">checkin</span><span
+              class="method-args">(socket)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Check a socket back into its pool.</p>
+            
+
+            
+            <div class="method-source-code" id="checkin-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 520</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">checkin</span>(<span class="ruby-identifier">socket</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@primary_pool</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">socket</span>
+    <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">pool</span>.<span class="ruby-identifier">checkin</span>(<span class="ruby-identifier">socket</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- checkin-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- checkin-method -->
+      
+        <div id="checkin_reader-method" class="method-detail ">
+          <a name="method-i-checkin_reader"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">checkin_reader</span><span
+              class="method-args">(socket)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Checkin a socket used for reading. Note: this is overridden in <a
+href="ReplSetConnection.html">ReplSetConnection</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="checkin_reader-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 509</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">checkin_reader</span>(<span class="ruby-identifier">socket</span>)
+  <span class="ruby-identifier">checkin</span>(<span class="ruby-identifier">socket</span>)
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- checkin_reader-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- checkin_reader-method -->
+      
+        <div id="checkin_writer-method" class="method-detail ">
+          <a name="method-i-checkin_writer"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">checkin_writer</span><span
+              class="method-args">(socket)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Checkin a socket used for writing. Note: this is overridden in <a
+href="ReplSetConnection.html">ReplSetConnection</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="checkin_writer-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 515</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">checkin_writer</span>(<span class="ruby-identifier">socket</span>)
+  <span class="ruby-identifier">checkin</span>(<span class="ruby-identifier">socket</span>)
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- checkin_writer-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- checkin_writer-method -->
+      
+        <div id="checkout_best-method" class="method-detail ">
+          <a name="method-i-checkout_best"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">checkout_best</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Prefer primary pool but fall back to secondary</p>
+            
+
+            
+            <div class="method-source-code" id="checkout_best-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 488</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">checkout_best</span>
+  <span class="ruby-identifier">connect</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">connected?</span>
+  <span class="ruby-ivar">@primary_pool</span>.<span class="ruby-identifier">checkout</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- checkout_best-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- checkout_best-method -->
+      
+        <div id="checkout_reader-method" class="method-detail ">
+          <a name="method-i-checkout_reader"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">checkout_reader</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Checkout a socket for reading (i.e., a secondary node). Note: this is
+overridden in <a href="ReplSetConnection.html">ReplSetConnection</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="checkout_reader-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 495</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">checkout_reader</span>
+  <span class="ruby-identifier">connect</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">connected?</span>
+  <span class="ruby-ivar">@primary_pool</span>.<span class="ruby-identifier">checkout</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- checkout_reader-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- checkout_reader-method -->
+      
+        <div id="checkout_writer-method" class="method-detail ">
+          <a name="method-i-checkout_writer"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">checkout_writer</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Checkout a socket for writing (i.e., a primary node). Note: this is
+overridden in <a href="ReplSetConnection.html">ReplSetConnection</a>.</p>
+            
+
+            
+            <div class="method-source-code" id="checkout_writer-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 502</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">checkout_writer</span>
+  <span class="ruby-identifier">connect</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">connected?</span>
+  <span class="ruby-ivar">@primary_pool</span>.<span class="ruby-identifier">checkout</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- checkout_writer-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- checkout_writer-method -->
+      
+        <div id="clear_auths-method" class="method-detail ">
+          <a name="method-i-clear_auths"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">clear_auths</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Remove all authenication information stored in this connection.</p>
+
+<p>@return [true] this operation return true because it always succeeds.</p>
+            
+
+            
+            <div class="method-source-code" id="clear_auths-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 274</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_auths</span>
+  <span class="ruby-ivar">@auths</span> = []
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- clear_auths-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- clear_auths-method -->
+      
+        <div id="close-method" class="method-detail ">
+          <a name="method-i-close"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">close</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Close the connection to the database.</p>
+            
+
+            
+            <div class="method-source-code" id="close-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 473</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>
+  <span class="ruby-ivar">@primary_pool</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@primary_pool</span>
+  <span class="ruby-ivar">@primary_pool</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@primary</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- close-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- close-method -->
+      
+        <div id="connect-method" class="method-detail ">
+          <a name="method-i-connect"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">connect</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Create a new socket and attempt to connect to master. If successful, sets
+host and port to master and returns the socket.</p>
+
+<p>If connecting to a replica set, this method will replace the
+initially-provided seed list with any nodes known to the set.</p>
+
+<p>@raise [ConnectionFailure] if unable to connect to any host or port.</p>
+            
+
+            
+            <div class="method-source-code" id="connect-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 403</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">connect</span>
+  <span class="ruby-identifier">close</span>
+
+  <span class="ruby-identifier">config</span> = <span class="ruby-identifier">check_is_master</span>(<span class="ruby-ivar">@host_to_try</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-string">'ismaster'</span>] <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">config</span>[<span class="ruby-string">'ismaster'</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-ivar">@read_primary</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@slave_ok</span>
+      <span class="ruby-ivar">@read_primary</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-ivar">@max_bson_size</span> = <span class="ruby-identifier">config</span>[<span class="ruby-string">'maxBsonObjectSize'</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_MAX_BSON_SIZE</span>
+    <span class="ruby-identifier">set_primary</span>(<span class="ruby-ivar">@host_to_try</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">connected?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ConnectionFailure</span>, <span class="ruby-node">&quot;Failed to connect to a master node at #{@host_to_try[0]}:#{@host_to_try[1]}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- connect-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="Connection.html#method-i-reconnect">reconnect</a>
+          </div>
+          
+
+          
+        </div><!-- connect-method -->
+      
+        <div id="connected-3F-method" class="method-detail ">
+          <a name="method-i-connected-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">connected?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>It's possible that we defined connected as all nodes being connected???
+NOTE: Do check if this needs to be more stringent. Probably not since if
+any node raises a connection failure, all nodes will be closed.</p>
+            
+
+            
+            <div class="method-source-code" id="connected-3F-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 427</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">connected?</span>
+  <span class="ruby-ivar">@primary_pool</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@primary_pool</span>.<span class="ruby-identifier">closed?</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- connected-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- connected-3F-method -->
+      
+        <div id="copy_database-method" class="method-detail ">
+          <a name="method-i-copy_database"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">copy_database</span><span
+              class="method-args">(from, to, from_host=DEFAULT_HOST, username=nil, password=nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Copy the database <code>from</code> to <code>to</code> on localhost. The
+<code>from</code> database is assumed to be on localhost, but an alternate
+host can be specified.</p>
+
+<p>@param [String] from name of the database to copy from. @param [String] to
+name of the database to copy to. @param [String] from_host host of the
+'from' database. @param [String] username username for authentication
+against from_db (&gt;=1.3.x). @param [String] password password for
+authentication against from_db (&gt;=1.3.x).</p>
+            
+
+            
+            <div class="method-source-code" id="copy_database-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 344</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_database</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>, <span class="ruby-identifier">from_host</span>=<span class="ruby-constant">DEFAULT_HOST</span>, <span class="ruby-identifier">username</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">password</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">oh</span> = <span class="ruby-constant">BSON</span><span class="ruby-operator">::</span><span class="ruby-constant">OrderedHash</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">oh</span>[<span class="ruby-value">:copydb</span>]   = <span class="ruby-value">1</span>
+  <span class="ruby-identifier">oh</span>[<span class="ruby-value">:fromhost</span>] = <span class="ruby-identifier">from_host</span>
+  <span class="ruby-identifier">oh</span>[<span class="ruby-value">:fromdb</span>]   = <span class="ruby-identifier">from</span>
+  <span class="ruby-identifier">oh</span>[<span class="ruby-value">:todb</span>]     = <span class="ruby-identifier">to</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">username</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">password</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">username</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">password</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">MongoArgumentError</span>, <span class="ruby-string">&quot;Both username and password must be supplied for authentication.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">nonce_cmd</span> = <span class="ruby-constant">BSON</span><span class="ruby-operator">::</span><span class="ruby-constant">OrderedHash</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">nonce_cmd</span>[<span class="ruby-value">:copydbgetnonce</span>] = <span class="ruby-value">1</span>
+    <span class="ruby-identifier">nonce_cmd</span>[<span class="ruby-value">:fromhost</span>] = <span class="ruby-identifier">from_host</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-keyword">self</span>[<span class="ruby-string">&quot;admin&quot;</span>].<span class="ruby-identifier">command</span>(<span class="ruby-identifier">nonce_cmd</span>)
+    <span class="ruby-identifier">oh</span>[<span class="ruby-value">:nonce</span>] = <span class="ruby-identifier">result</span>[<span class="ruby-string">&quot;nonce&quot;</span>]
+    <span class="ruby-identifier">oh</span>[<span class="ruby-value">:username</span>] = <span class="ruby-identifier">username</span>
+    <span class="ruby-identifier">oh</span>[<span class="ruby-value">:key</span>] = <span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">Support</span>.<span class="ruby-identifier">auth_key</span>(<span class="ruby-identifier">username</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">oh</span>[<span class="ruby-value">:nonce</span>])
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>[<span class="ruby-string">&quot;admin&quot;</span>].<span class="ruby-identifier">command</span>(<span class="ruby-identifier">oh</span>)
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- copy_database-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- copy_database-method -->
+      
+        <div id="database_info-method" class="method-detail ">
+          <a name="method-i-database_info"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">database_info</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Return a hash with all database names and their respective sizes on disk.</p>
+
+<p>@return [Hash]</p>
+            
+
+            
+            <div class="method-source-code" id="database_info-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">database_info</span>
+  <span class="ruby-identifier">doc</span> = <span class="ruby-keyword">self</span>[<span class="ruby-string">'admin'</span>].<span class="ruby-identifier">command</span>({<span class="ruby-value">:listDatabases</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>})
+  <span class="ruby-identifier">doc</span>[<span class="ruby-string">'databases'</span>].<span class="ruby-identifier">each_with_object</span>({}) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">db</span>, <span class="ruby-identifier">info</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">info</span>[<span class="ruby-identifier">db</span>[<span class="ruby-string">'name'</span>]] = <span class="ruby-identifier">db</span>[<span class="ruby-string">'sizeOnDisk'</span>].<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- database_info-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- database_info-method -->
+      
+        <div id="database_names-method" class="method-detail ">
+          <a name="method-i-database_names"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">database_names</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Return an array of database names.</p>
+
+<p>@return [Array]</p>
+            
+
+            
+            <div class="method-source-code" id="database_names-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">database_names</span>
+  <span class="ruby-identifier">database_info</span>.<span class="ruby-identifier">keys</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- database_names-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- database_names-method -->
+      
+        <div id="db-method" class="method-detail ">
+          <a name="method-i-db"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">db</span><span
+              class="method-args">(db_name, opts={})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Return a database with the given name. See DB#new for valid options hash
+parameters.</p>
+
+<p>@param [String] db_name a valid database name. @param [Hash] opts options
+to be passed to the <a href="DB.html">DB</a> constructor.</p>
+
+<p>@return [Mongo::DB]</p>
+
+<p>@core databases db-instance_method</p>
+            
+
+            
+            <div class="method-source-code" id="db-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 314</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">db</span>(<span class="ruby-identifier">db_name</span>, <span class="ruby-identifier">opts</span>={})
+  <span class="ruby-constant">DB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">db_name</span>, <span class="ruby-keyword">self</span>, <span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- db-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- db-method -->
+      
+        <div id="drop_database-method" class="method-detail ">
+          <a name="method-i-drop_database"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">drop_database</span><span
+              class="method-args">(name)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Drop a database.</p>
+
+<p>@param [String] name name of an existing database.</p>
+            
+
+            
+            <div class="method-source-code" id="drop_database-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 332</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">drop_database</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">self</span>[<span class="ruby-identifier">name</span>].<span class="ruby-identifier">command</span>(<span class="ruby-value">:dropDatabase</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>)
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- drop_database-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- drop_database-method -->
+      
+        <div id="host-method" class="method-detail ">
+          <a name="method-i-host"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">host</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>The host name used for this connection.</p>
+
+<p>@return [String]</p>
+            
+
+            
+            <div class="method-source-code" id="host-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">host</span>
+  <span class="ruby-ivar">@primary_pool</span>.<span class="ruby-identifier">host</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- host-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- host-method -->
+      
+        <div id="lock-21-method" class="method-detail ">
+          <a name="method-i-lock-21"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">lock!</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Fsync, then lock the mongod process against writes. Use this to get the
+datafiles in a state safe for snapshotting, backing up, etc.</p>
+
+<p>@return [BSON::OrderedHash] the command response</p>
+            
+
+            
+            <div class="method-source-code" id="lock-21-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lock!</span>
+  <span class="ruby-identifier">cmd</span> = <span class="ruby-constant">BSON</span><span class="ruby-operator">::</span><span class="ruby-constant">OrderedHash</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">cmd</span>[<span class="ruby-value">:fsync</span>] = <span class="ruby-value">1</span>
+  <span class="ruby-identifier">cmd</span>[<span class="ruby-value">:lock</span>]  = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">self</span>[<span class="ruby-string">'admin'</span>].<span class="ruby-identifier">command</span>(<span class="ruby-identifier">cmd</span>)
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- lock-21-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- lock-21-method -->
+      
+        <div id="locked-3F-method" class="method-detail ">
+          <a name="method-i-locked-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">locked?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Is this database locked against writes?</p>
+
+<p>@return [Boolean]</p>
+            
+
+            
+            <div class="method-source-code" id="locked-3F-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">locked?</span>
+  <span class="ruby-keyword">self</span>[<span class="ruby-string">'admin'</span>][<span class="ruby-string">'$cmd.sys.inprog'</span>].<span class="ruby-identifier">find_one</span>[<span class="ruby-string">'fsyncLock'</span>] <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- locked-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- locked-3F-method -->
+      
+        <div id="logout_pools-method" class="method-detail ">
+          <a name="method-i-logout_pools"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">logout_pools</span><span
+              class="method-args">(db)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="logout_pools-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 283</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">logout_pools</span>(<span class="ruby-identifier">db</span>)
+  <span class="ruby-ivar">@primary_pool</span>.<span class="ruby-identifier">logout_existing</span>(<span class="ruby-identifier">db</span>)
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- logout_pools-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- logout_pools-method -->
+      
+        <div id="max_bson_size-method" class="method-detail ">
+          <a name="method-i-max_bson_size"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">max_bson_size</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns the maximum <a href="../BSON.html">BSON</a> object size as returned
+by the core server. Use the 4MB default when the server doesn't report
+this.</p>
+
+<p>@return [Integer]</p>
+            
+
+            
+            <div class="method-source-code" id="max_bson_size-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 483</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">max_bson_size</span>
+  <span class="ruby-ivar">@max_bson_size</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- max_bson_size-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- max_bson_size-method -->
+      
+        <div id="ping-method" class="method-detail ">
+          <a name="method-i-ping"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">ping</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Checks if a server is alive. This command will return immediately even if
+the server is in a lock.</p>
+
+<p>@return [Hash]</p>
+            
+
+            
+            <div class="method-source-code" id="ping-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 369</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ping</span>
+  <span class="ruby-keyword">self</span>[<span class="ruby-string">&quot;admin&quot;</span>].<span class="ruby-identifier">command</span>({<span class="ruby-value">:ping</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>})
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- ping-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ping-method -->
+      
+        <div id="port-method" class="method-detail ">
+          <a name="method-i-port"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">port</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>The port used for this connection.</p>
+
+<p>@return [Integer]</p>
+            
+
+            
+            <div class="method-source-code" id="port-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">port</span>
+  <span class="ruby-ivar">@primary_pool</span>.<span class="ruby-identifier">port</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- port-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- port-method -->
+      
+        <div id="primary-3F-method" class="method-detail method-alias">
+          <a name="method-i-primary-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">primary?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="Connection.html#method-i-read_primary-3F">read_primary?</a>
+          </div>
+          
+        </div><!-- primary-3F-method -->
+      
+        <div id="read_pool-method" class="method-detail ">
+          <a name="method-i-read_pool"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">read_pool</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>The socket pool that this connection reads from.</p>
+
+<p>@return [Mongo::Pool]</p>
+            
+
+            
+            <div class="method-source-code" id="read_pool-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 459</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_pool</span>
+  <span class="ruby-ivar">@primary_pool</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- read_pool-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- read_pool-method -->
+      
+        <div id="read_preference-method" class="method-detail ">
+          <a name="method-i-read_preference"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">read_preference</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>The value of the read preference.</p>
+            
+
+            
+            <div class="method-source-code" id="read_preference-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 464</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_preference</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">slave_ok?</span>
+    <span class="ruby-value">:secondary</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-value">:primary</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- read_preference-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- read_preference-method -->
+      
+        <div id="read_primary-3F-method" class="method-detail ">
+          <a name="method-i-read_primary-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">read_primary?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Determine whether we're reading from a primary node. If false, this
+connection connects to a secondary node and @slave_ok is true.</p>
+
+<p>@return [Boolean]</p>
+            
+
+            
+            <div class="method-source-code" id="read_primary-3F-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 451</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_primary?</span>
+  <span class="ruby-ivar">@read_primary</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- read_primary-3F-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="Connection.html#method-i-primary-3F">primary?</a>
+          </div>
+          
+
+          
+        </div><!-- read_primary-3F-method -->
+      
+        <div id="reconnect-method" class="method-detail method-alias">
+          <a name="method-i-reconnect"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">reconnect</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="Connection.html#method-i-connect">connect</a>
+          </div>
+          
+        </div><!-- reconnect-method -->
+      
+        <div id="remove_auth-method" class="method-detail ">
+          <a name="method-i-remove_auth"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">remove_auth</span><span
+              class="method-args">(db_name)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Remove a saved authentication for this connection.</p>
+
+<p>@param [String] db_name</p>
+
+<p>@return [Boolean]</p>
+            
+
+            
+            <div class="method-source-code" id="remove_auth-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_auth</span>(<span class="ruby-identifier">db_name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@auths</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@auths</span>.<span class="ruby-identifier">reject!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>[<span class="ruby-string">'db_name'</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">db_name</span> }
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- remove_auth-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- remove_auth-method -->
+      
+        <div id="server_info-method" class="method-detail ">
+          <a name="method-i-server_info"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">server_info</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Get the build information for the current connection.</p>
+
+<p>@return [Hash]</p>
+            
+
+            
+            <div class="method-source-code" id="server_info-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 376</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">server_info</span>
+  <span class="ruby-keyword">self</span>[<span class="ruby-string">&quot;admin&quot;</span>].<span class="ruby-identifier">command</span>({<span class="ruby-value">:buildinfo</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>})
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- server_info-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- server_info-method -->
+      
+        <div id="server_version-method" class="method-detail ">
+          <a name="method-i-server_version"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">server_version</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Get the build version of the current server.</p>
+
+<p>@return [Mongo::ServerVersion]</p>
+
+<pre>object allowing easy comparability of version.</pre>
+            
+
+            
+            <div class="method-source-code" id="server_version-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 385</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">server_version</span>
+  <span class="ruby-constant">ServerVersion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">server_info</span>[<span class="ruby-string">&quot;version&quot;</span>])
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- server_version-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- server_version-method -->
+      
+        <div id="slave_ok-3F-method" class="method-detail ">
+          <a name="method-i-slave_ok-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">slave_ok?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Is it okay to connect to a slave?</p>
+
+<p>@return [Boolean]</p>
+            
+
+            
+            <div class="method-source-code" id="slave_ok-3F-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 392</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">slave_ok?</span>
+  <span class="ruby-ivar">@slave_ok</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- slave_ok-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- slave_ok-3F-method -->
+      
+        <div id="unlock-21-method" class="method-detail ">
+          <a name="method-i-unlock-21"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">unlock!</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Unlock a previously fsync-locked mongod process.</p>
+
+<p>@return [BSON::OrderedHash] command response</p>
+            
+
+            
+            <div class="method-source-code" id="unlock-21-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unlock!</span>
+  <span class="ruby-keyword">self</span>[<span class="ruby-string">'admin'</span>][<span class="ruby-string">'$cmd.sys.unlock'</span>].<span class="ruby-identifier">find_one</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- unlock-21-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- unlock-21-method -->
+      
+      </div><!-- public-instance-method-details -->
+    
+      <div id="protected-instance-method-details" class="method-section section">
+        <h3 class="section-header">Protected Instance Methods</h3>
+
+      
+        <div id="check_opts-method" class="method-detail ">
+          <a name="method-i-check_opts"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">check_opts</span><span
+              class="method-args">(opts)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="check_opts-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 545</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_opts</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">bad_opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span> <span class="ruby-identifier">valid_opts</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">opt</span>) }
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">bad_opts</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">bad_opts</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span> <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;#{opt} is not a valid option for #{self.class}&quot;</span>}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- check_opts-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- check_opts-method -->
+      
+        <div id="setup-method" class="method-detail ">
+          <a name="method-i-setup"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">setup</span><span
+              class="method-args">(opts)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Parse option hash</p>
+            
+
+            
+            <div class="method-source-code" id="setup-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 554</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-comment"># slave_ok can be true only if one node is specified</span>
+  <span class="ruby-ivar">@slave_ok</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:slave_ok</span>]
+  
+  <span class="ruby-comment"># Determine whether to use SSL.</span>
+  <span class="ruby-ivar">@ssl</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:ssl</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ssl</span>
+    <span class="ruby-ivar">@socket_class</span> = <span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLSocket</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@socket_class</span> = <span class="ruby-constant">Mongo</span><span class="ruby-operator">::</span><span class="ruby-constant">TCPSocket</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Authentication objects</span>
+  <span class="ruby-ivar">@auths</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:auths</span>, [])
+
+  <span class="ruby-comment"># Pool size and timeout.</span>
+  <span class="ruby-ivar">@pool_size</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:pool_size</span>] <span class="ruby-operator">||</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:timeout</span>]
+    <span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;The :timeout option has been deprecated &quot;</span> <span class="ruby-operator">+</span>
+      <span class="ruby-string">&quot;and will be removed in the 2.0 release. Use :pool_timeout instead.&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@pool_timeout</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:pool_timeout</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:timeout</span>] <span class="ruby-operator">||</span> <span class="ruby-value">5.0</span>
+
+  <span class="ruby-comment"># Timeout on socket read operation.</span>
+  <span class="ruby-ivar">@op_timeout</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:op_timeout</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-comment"># Timeout on socket connect.</span>
+  <span class="ruby-ivar">@connect_timeout</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:connect_timeout</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-comment"># Global safe option. This is false by default.</span>
+  <span class="ruby-ivar">@safe</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:safe</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">false</span>
+
+  <span class="ruby-ivar">@logger</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:logger</span>, <span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@logger</span>
+    <span class="ruby-identifier">write_logging_startup_message</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:connect</span>, <span class="ruby-keyword">true</span>)
+    <span class="ruby-identifier">connect</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- setup-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- setup-method -->
+      
+        <div id="valid_opts-method" class="method-detail ">
+          <a name="method-i-valid_opts"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">valid_opts</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="valid_opts-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File vendor/bundle/ruby/1.9.1/gems/mongo-1.6.4/lib/mongo/connection.rb, line 541</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_opts</span>
+  <span class="ruby-constant">GENERIC_OPTS</span> <span class="ruby-operator">+</span> <span class="ruby-constant">CONNECTION_OPTS</span>
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- valid_opts-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- valid_opts-method -->
+      
+      </div><!-- protected-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+   
+  </div><!-- documentation -->
+  <div id='dynamic'></div>
+  
+<div class='grids wrapper' id="footer">
+  
+      <p><small>Generated with the <a href="http://neurogami.com/code/">Ruby-doc Rdoc Generator</a> 0.10.0</small>.</p>
+  </div>
+</div>
+ 
+</body>
+</html>

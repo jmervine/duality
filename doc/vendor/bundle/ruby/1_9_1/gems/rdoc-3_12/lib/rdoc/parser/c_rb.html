@@ -1,0 +1,220 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <!-- RD version: 0.10.0  -->
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <!-- meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" -->
+
+
+	<title>File: c.rb [Duality 0.0.4 ./lib/**/*]</title>
+  <!-- raw_prefix  = '../../../../../../../../..'   -->
+  <link rel="stylesheet" href="../../../../../../../../../css/obf.css" >
+
+
+</head>
+
+<body class="file file-popup">
+	<div id="metadata">
+		<dl>
+			<dt class="modified-date">Last Modified</dt>
+			<dd class="modified-date">2012-07-22 12:53:14 -0400</dd>
+
+			
+			<dt class="requires">Requires</dt>
+			<dd class="requires">
+				<ul>
+				
+				</ul>
+			</dd>
+			
+
+			
+		</dl>
+	</div>
+
+	<div id="documentation">
+		
+		<div class="description">
+			<h2>Description</h2>
+			
+<p><a href="../../../../../../../../../RDoc/Parser/C.html">RDoc::Parser::C</a>
+attempts to parse C extension files.  It looks for the standard patterns
+that you find in extensions: <code>rb_define_class, rb_define_method</code>
+and so on.  It tries to find the corresponding C source for the methods and
+extract comments, but if we fail we don't worry too much.</p>
+
+<p>The comments associated with a Ruby method are extracted from the C comment
+block associated with the routine that <em>implements</em> that method,
+that is to say the method whose name is given in the
+<code>rb_define_method</code> call. For example, you might write:</p>
+
+<pre class="ruby">  <span class="ruby-constant">Returns</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">new</span> <span class="ruby-identifier">array</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">one</span><span class="ruby-operator">-</span><span class="ruby-identifier">dimensional</span> <span class="ruby-identifier">flattening</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">this</span>
+  <span class="ruby-identifier">array</span> (<span class="ruby-identifier">recursively</span>). <span class="ruby-constant">That</span> <span class="ruby-identifier">is</span>, <span class="ruby-keyword">for</span> <span class="ruby-identifier">every</span> <span class="ruby-identifier">element</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">an</span> <span class="ruby-identifier">array</span>,
+  <span class="ruby-identifier">extract</span> <span class="ruby-identifier">its</span> <span class="ruby-identifier">elements</span> <span class="ruby-identifier">into</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">new</span> <span class="ruby-identifier">array</span>.
+
+     <span class="ruby-identifier">s</span> = [ <span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span> ]           <span class="ruby-comment">#=&gt; [1, 2, 3]</span>
+     <span class="ruby-identifier">t</span> = [ <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span>, [<span class="ruby-value">7</span>, <span class="ruby-value">8</span>] ]   <span class="ruby-comment">#=&gt; [4, 5, 6, [7, 8]]</span>
+     <span class="ruby-identifier">a</span> = [ <span class="ruby-identifier">s</span>, <span class="ruby-identifier">t</span>, <span class="ruby-value">9</span>, <span class="ruby-value">10</span> ]       <span class="ruby-comment">#=&gt; [[1, 2, 3], [4, 5, 6, [7, 8]], 9, 10]</span>
+     <span class="ruby-identifier">a</span>.<span class="ruby-identifier">flatten</span>                 <span class="ruby-comment">#=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+
+<span class="ruby-identifier">static</span> <span class="ruby-constant">VALUE</span>
+<span class="ruby-identifier">rb_ary_flatten</span>(<span class="ruby-identifier">ary</span>)
+    <span class="ruby-constant">VALUE</span> <span class="ruby-identifier">ary</span>;
+{
+    <span class="ruby-identifier">ary</span> = <span class="ruby-identifier">rb_obj_dup</span>(<span class="ruby-identifier">ary</span>);
+    <span class="ruby-identifier">rb_ary_flatten_bang</span>(<span class="ruby-identifier">ary</span>);
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">ary</span>;
+}
+
+<span class="ruby-operator">...</span>
+
+<span class="ruby-identifier">void</span>
+<span class="ruby-constant">Init_Array</span>()
+{
+  <span class="ruby-operator">...</span>
+  <span class="ruby-identifier">rb_define_method</span>(<span class="ruby-identifier">rb_cArray</span>, <span class="ruby-string">&quot;flatten&quot;</span>, <span class="ruby-identifier">rb_ary_flatten</span>, <span class="ruby-value">0</span>);
+</pre>
+
+<p>Here <a href="../../../../../../../../../RDoc.html">RDoc</a> will determine
+from the rb_define_method line that there's a method called "flatten" in
+class <a href="../../../../../../../../../Array.html">Array</a>, and will
+look for the implementation in the method rb_ary_flatten. It will then use
+the comment from that method in the HTML output. This method must be in the
+same source file as the rb_define_method.</p>
+
+<p>The comment blocks may include special directives:</p>
+<dl class="rdoc-list label-list"><dt>Document-class: name
+<dd>
+<p>Documentation for the named class.</p>
+</dd><dt>Document-module: name
+<dd>
+<p>Documentation for the named module.</p>
+</dd><dt>Document-const: name
+<dd>
+<p>Documentation for the named <code>rb_define_const</code>.</p>
+</dd><dt>Document-global: name
+<dd>
+<p>Documentation for the named <code>rb_define_global_const</code></p>
+</dd><dt>Document-variable: name
+<dd>
+<p>Documentation for the named <code>rb_define_variable</code></p>
+</dd><dt>Document-method: method_name
+<dd>
+<p>Documentation for the named method.  Use this when the method name is
+unambiguous.</p>
+</dd><dt>Document-method: &lt;tt&gt;ClassName::method_name&lt;tt&gt;
+<dd>
+<p>Documentation for a singleton method in the given class.  Use this when the
+method name alone is ambiguous.</p>
+</dd><dt>Document-method: &lt;tt&gt;ClassName#method_name&lt;tt&gt;
+<dd>
+<p>Documentation for a instance method in the given class.  Use this when the
+method name alone is ambiguous.</p>
+</dd><dt>Document-attr: name
+<dd>
+<p>Documentation for the named attribute.</p>
+</dd><dt>call-seq:  text up to an empty line
+<dd>
+<p>Because C source doesn't give descriptive names to Ruby-level parameters,
+you need to document the calling sequence explicitly</p>
+</dd></dl>
+
+<p>In addition, <a href="../../../../../../../../../RDoc.html">RDoc</a>
+assumes by default that the C method implementing a Ruby function is in the
+same source file as the rb_define_method call. If this isn't the case, add
+the comment:</p>
+
+<pre>rb_define_method(....);  // in filename</pre>
+
+<p>As an example, we might have an extension that defines multiple classes in
+its Init_xxx method. We could document them using</p>
+
+<pre class="ruby">   <span class="ruby-constant">Document</span><span class="ruby-operator">-</span><span class="ruby-keyword">class</span><span class="ruby-operator">:</span>  <span class="ruby-constant">MyClass</span>
+
+   <span class="ruby-constant">Encapsulate</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">writing</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">reading</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">configuration</span>
+   <span class="ruby-identifier">file</span>. <span class="ruby-operator">...</span>
+
+<span class="ruby-regexp">%r*
+
+   call-seq:
+     cfg.read_value(key)            -&gt; value
+     cfg.read_value(key} { |key| }  -&gt; value
+
+   Return the value corresponding to +key+ from the configuration.
+   In the second form, if the key isn't found, invoke the
+   block and return its value.
+  /</span>
+</pre>
+
+		</div>
+		
+  </div>
+
+
+ <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../../../../../../../../js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+	<script src="../../../../../../../../../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../../../../../../../../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../../../../../../../../js/rubydoc.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../../../../../../js/libs/modernizr-2.0.6.min.js"></script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="../../../../../../../../../js/plugins.js"></script>
+  <script defer src="../../../../../../../../../js/script.js"></script>
+  <!-- end scripts-->
+<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+ <div class='info'>
+  <p>Commenting is here to help enhance the documentation.  For example, sample code, or clarification of the documentation.</p>
+  <p>If you have questions about Ruby or the documentation, please post to one of the <a href='http://www.ruby-lang.org/en/community/mailing-lists/'>Ruby mailing lists</a>.  You will get better, faster, help that way.</p>
+  <p>If you wish to post a correction of the docs, please do so, but also <a href='http://bugs.ruby-lang.org/projects/ruby/wiki/HowtoReport' >file bug report</a> so that it can be corrected for the next release. Thank you.</p>
+  </div>
+
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    // var disqus_shortname = 'rubydocbeta'; // required 
+    var disqus_shortname = 'ruby-doc'; // required 
+    
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+<div id="footer">
+      <p><small>Generated with the <a href="http://neurogami.com/code/">Rubydoc Rdoc Generator</a> 0.10.0</small>.</p>
+  </div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-335317-2";
+urchinTracker(); </script>
+  
+</body>
+
+
+</html>
+

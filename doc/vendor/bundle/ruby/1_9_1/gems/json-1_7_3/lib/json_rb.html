@@ -1,0 +1,180 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <!-- RD version: 0.10.0  -->
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <!-- meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" -->
+
+
+	<title>File: json.rb [Duality 0.0.4 ./lib/**/*]</title>
+  <!-- raw_prefix  = '../../../../../../..'   -->
+  <link rel="stylesheet" href="../../../../../../../css/obf.css" >
+
+
+</head>
+
+<body class="file file-popup">
+	<div id="metadata">
+		<dl>
+			<dt class="modified-date">Last Modified</dt>
+			<dd class="modified-date">2012-07-22 12:53:11 -0400</dd>
+
+			
+			<dt class="requires">Requires</dt>
+			<dd class="requires">
+				<ul>
+				
+					<li>json/common</li>
+				
+					<li>json/version</li>
+				
+					<li>json/ext</li>
+				
+					<li>json/pure</li>
+				
+				</ul>
+			</dd>
+			
+
+			
+		</dl>
+	</div>
+
+	<div id="documentation">
+		
+		<div class="description">
+			<h2>Description</h2>
+			
+<h1 id="label-JavaScript+Object+Notation+%28JSON%29">JavaScript <a href="../../../../../../../Object.html">Object</a> Notation (<a href="../../../../../../../JSON.html">JSON</a>)</h1>
+
+<p><a href="../../../../../../../JSON.html">JSON</a> is a lightweight
+data-interchange format. It is easy for us humans to read and write. Plus,
+equally simple for machines to generate or parse. <a
+href="../../../../../../../JSON.html">JSON</a> is completely language
+agnostic, making it the ideal interchange format.</p>
+
+<p>Built on two universally available structures:</p>
+
+<pre>1. A collection of name/value pairs. Often referred to as an _object_, hash table, record, struct, keyed list, or associative array.
+2. An ordered list of values. More commonly called an _array_, vector, sequence or list.</pre>
+
+<p>To read more about <a href="../../../../../../../JSON.html">JSON</a> visit:
+<a href="http://json.org">json.org</a></p>
+
+<h2 id="label-Parsing+JSON">Parsing <a href="../../../../../../../JSON.html">JSON</a></h2>
+
+<p>To parse a <a href="../../../../../../../JSON.html">JSON</a> string
+received by another application or generated within your existing
+application:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'json'</span>
+
+<span class="ruby-identifier">my_hash</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">'{&quot;hello&quot;: &quot;goodbye&quot;}'</span>)
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">my_hash</span>[<span class="ruby-string">&quot;hello&quot;</span>] =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;goodbye&quot;</span>
+</pre>
+
+<p>Notice the extra quotes <code>''</code> around the hash notation. Ruby
+expects the argument to be a string and can't convert objects like a hash
+or array.</p>
+
+<p>Ruby converts your string into a hash</p>
+
+<h2 id="label-Generating+JSON">Generating <a href="../../../../../../../JSON.html">JSON</a></h2>
+
+<p>Creating a <a href="../../../../../../../JSON.html">JSON</a> string for
+communication or serialization is just as simple.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'json'</span>
+
+<span class="ruby-identifier">my_hash</span> = {:<span class="ruby-identifier">hello</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;goodbye&quot;</span>}
+<span class="ruby-identifier">puts</span> <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">my_hash</span>) =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;{\&quot;hello\&quot;:\&quot;goodbye\&quot;}&quot;</span>
+</pre>
+
+<p>Or an alternative way:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'json'</span>
+<span class="ruby-identifier">puts</span> {:<span class="ruby-identifier">hello</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;goodbye&quot;</span>}.<span class="ruby-identifier">to_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;{\&quot;hello\&quot;:\&quot;goodbye\&quot;}&quot;</span>
+</pre>
+
+<p><code>JSON.generate</code> only allows objects or arrays to be converted to
+<a href="../../../../../../../JSON.html">JSON</a> syntax.
+<code>to_json</code>, however, accepts many Ruby classes even though it
+acts only as a method for serialization:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'json'</span>
+
+<span class="ruby-value">1</span>.<span class="ruby-identifier">to_json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1&quot;</span>
+</pre>
+
+		</div>
+		
+  </div>
+
+
+ <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../../../../../../js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+	<script src="../../../../../../../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../../../../../../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../../../../../../js/rubydoc.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../../../../js/libs/modernizr-2.0.6.min.js"></script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="../../../../../../../js/plugins.js"></script>
+  <script defer src="../../../../../../../js/script.js"></script>
+  <!-- end scripts-->
+<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+ <div class='info'>
+  <p>Commenting is here to help enhance the documentation.  For example, sample code, or clarification of the documentation.</p>
+  <p>If you have questions about Ruby or the documentation, please post to one of the <a href='http://www.ruby-lang.org/en/community/mailing-lists/'>Ruby mailing lists</a>.  You will get better, faster, help that way.</p>
+  <p>If you wish to post a correction of the docs, please do so, but also <a href='http://bugs.ruby-lang.org/projects/ruby/wiki/HowtoReport' >file bug report</a> so that it can be corrected for the next release. Thank you.</p>
+  </div>
+
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    // var disqus_shortname = 'rubydocbeta'; // required 
+    var disqus_shortname = 'ruby-doc'; // required 
+    
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+<div id="footer">
+      <p><small>Generated with the <a href="http://neurogami.com/code/">Rubydoc Rdoc Generator</a> 0.10.0</small>.</p>
+  </div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-335317-2";
+urchinTracker(); </script>
+  
+</body>
+
+
+</html>
+

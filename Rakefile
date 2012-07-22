@@ -7,7 +7,7 @@ RSpec::Core::RakeTask.new(:spec)
 task :default => :spec
 
 task :rdoc do
-  puts %x{ rdoc -f rubydoc -t "Duality #{Duality::VERSION} ./lib/**/*" }
+  puts ` set -x; rdoc -f rubydoc -t "Duality #{Duality::VERSION}" ./lib/**/*.rb `
 end
 
 task :benchmark do

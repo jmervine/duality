@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <!-- RD version: 0.10.0  -->
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=US-ASCII" http-equiv="Content-Type" />
   <title>Class: Duality</title>
   <link rel="stylesheet" href="css/obf.css" >
 
@@ -95,9 +95,13 @@
           
           <li><a href="#method-i-clean">#clean</a></li>
           
+          <li><a href="#method-i-cleanup">#cleanup</a></li>
+          
           <li><a href="#method-i-delete">#delete</a></li>
           
           <li><a href="#method-i-flush">#flush</a></li>
+          
+          <li><a href="#method-i-flush_expired">#flush_expired</a></li>
           
           <li><a href="#method-i-get">#get</a></li>
           
@@ -262,6 +266,34 @@
           
         </div><!-- clean-method -->
       
+        <div id="cleanup-method" class="method-detail method-alias">
+          <a name="method-i-cleanup"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">cleanup</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+          </div>
+
+          
+
+          
+          <div class="aliases">
+            Alias for: <a href="Duality.html#method-i-flush_expired">flush_expired</a>
+          </div>
+          
+        </div><!-- cleanup-method -->
+      
         <div id="delete-method" class="method-detail ">
           <a name="method-i-delete"></a>
 
@@ -340,6 +372,45 @@
           
         </div><!-- flush-method -->
       
+        <div id="flush_expired-method" class="method-detail ">
+          <a name="method-i-flush_expired"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">flush_expired</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="flush_expired-source">
+              <pre>
+              <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
+               <span class="ruby-comment"># File lib/duality.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flush_expired</span>
+  <span class="ruby-identifier">run_method</span>(<span class="ruby-value">:flush_expired</span>)
+<span class="ruby-keyword">end</span>
+             </code>
+            </pre> 
+            </div><!-- flush_expired-source -->
+            
+          </div>
+
+          
+          <div class="aliases">
+            Also aliased as: <a href="Duality.html#method-i-cleanup">cleanup</a>
+          </div>
+          
+
+          
+        </div><!-- flush_expired-method -->
+      
         <div id="get-method" class="method-detail ">
           <a name="method-i-get"></a>
 
@@ -363,7 +434,7 @@
             <div class="method-source-code" id="get-source">
               <pre>
               <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
-               <span class="ruby-comment"># File lib/duality.rb, line 36</span>
+               <span class="ruby-comment"># File lib/duality.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span> <span class="ruby-identifier">key</span>
   <span class="ruby-identifier">content</span> = <span class="ruby-keyword">nil</span>
   <span class="ruby-keyword">begin</span>
@@ -438,7 +509,7 @@
             <p>Add support for other methods from passed caches this adds support only,
 but no speed gains.</p>
 <ul><li>
-<p>use “strict_” to ensure both caches contain method</p>
+<p>use "strict_" to ensure both caches contain method</p>
 </li></ul>
             
 
@@ -446,7 +517,7 @@ but no speed gains.</p>
             <div class="method-source-code" id="method_missing-source">
               <pre>
               <code class='cpp'> <!-- How can we tell the language? Can we grab the file extension of the parsed source file? --> 
-               <span class="ruby-comment"># File lib/duality.rb, line 56</span>
+               <span class="ruby-comment"># File lib/duality.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">meth</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">meth</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r^strict_(.+)$/</span>
     <span class="ruby-identifier">meth</span> = <span class="ruby-node">$1</span>

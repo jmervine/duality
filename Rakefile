@@ -6,10 +6,6 @@ require './lib/duality'
 RSpec::Core::RakeTask.new(:spec)
 task :default => :spec
 
-task :rdoc do
-  puts ` set -x; rdoc -f rubydoc -t "Duality #{Duality::VERSION}" ./lib/**/*.rb `
-end
-
 task :benchmark do
   load './spec/benchmarks.rb'
 end

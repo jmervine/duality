@@ -12,3 +12,4 @@ test/version_tmp
 tmp
 
 vendor/bundle
+.yardoc

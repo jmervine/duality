@@ -99,6 +99,16 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Duality/CacheTimeout.html" title="Duality::CacheTimeout (class)">CacheTimeout</a></span>, <span class='object_link'><a href="Duality/NotACache.html" title="Duality::NotACache (class)">NotACache</a></span>
+    
+  
+</p>
 
   <h2>Constant Summary</h2>
   
@@ -145,8 +155,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delete from both - async.</p>
+    <span class="summary_desc"><div class='inline'><p>
+Delete from both - async.
+</p>
 </div></span>
   
 </li>
@@ -171,8 +182,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Flush caches - async.</p>
+    <span class="summary_desc"><div class='inline'><p>
+Flush caches - async.
+</p>
 </div></span>
   
 </li>
@@ -221,8 +233,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Get from fast or slow.</p>
+    <span class="summary_desc"><div class='inline'><p>
+Get from fast or slow.
+</p>
 </div></span>
   
 </li>
@@ -247,8 +260,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Duality.</p>
+    <span class="summary_desc"><div class='inline'><p>
+A new instance of Duality.
+</p>
 </div></span>
   
 </li>
@@ -271,10 +285,55 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Add support for other methods from passed caches this adds support only,
-but no speed gains.</p>
+    <span class="summary_desc"><div class='inline'><p>
+Add support for other methods from passed caches this adds support only,
+but no speed gains.
+</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#run_method-instance_method" title="#run_method (instance method)">- (Object) <strong>run_method</strong>(meth, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#run_missing_method-instance_method" title="#run_missing_method (instance method)">- (Object) <strong>run_missing_method</strong>(meth, *args, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -298,8 +357,9 @@ but no speed gains.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Set to fast and slow.</p>
+    <span class="summary_desc"><div class='inline'><p>
+Set to fast and slow.
+</p>
 </div></span>
   
 </li>
@@ -322,8 +382,9 @@ but no speed gains.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>A new instance of Duality</p>
+    <p>
+A new instance of Duality
+</p>
 
 
   </div>
@@ -392,12 +453,16 @@ but no speed gains.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Add support for other methods from passed caches this adds support only,
-but no speed gains.</p>
-<ul><li>
-<p>use "strict_" to ensure both caches contain method</p>
-</li></ul>
+    <p>
+Add support for other methods from passed caches this adds support only,
+but no speed gains.
+</p>
+<ul>
+<li><p>
+use &#8220;strict_&#8221; to ensure both caches contain method
+</p>
+</li>
+</ul>
 
 
   </div>
@@ -460,8 +525,9 @@ but no speed gains.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delete from both - async</p>
+    <p>
+Delete from both - async
+</p>
 
 
   </div>
@@ -505,8 +571,9 @@ but no speed gains.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Flush caches - async</p>
+    <p>
+Flush caches - async
+</p>
 
 
   </div>
@@ -584,11 +651,15 @@ but no speed gains.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Get from fast or slow.</p>
-<ul><li>
-<p>returns nil if none are found</p>
-</li></ul>
+    <p>
+Get from fast or slow.
+</p>
+<ul>
+<li><p>
+returns nil if none are found
+</p>
+</li>
+</ul>
 
 
   </div>
@@ -642,6 +713,104 @@ but no speed gains.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="run_method-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_method</strong>(meth, *args)  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/duality.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_run_method'>run_method</span> <span class='id identifier rubyid_meth'>meth</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span>
+  <span class='id identifier rubyid_success'>success</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='kw'>begin</span>
+    <span class='ivar'>@fast</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_meth'>meth</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span> 
+  <span class='kw'>rescue</span> <span class='const'>Exception</span>
+    <span class='id identifier rubyid_success'>success</span> <span class='op'>=</span> <span class='kw'>false</span> 
+  <span class='kw'>rescue</span> 
+    <span class='id identifier rubyid_success'>success</span> <span class='op'>=</span> <span class='kw'>false</span> 
+  <span class='kw'>end</span>
+  <span class='kw'>begin</span>
+    <span class='ivar'>@slow</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_meth'>meth</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span> 
+  <span class='kw'>rescue</span> <span class='const'>Exception</span>
+    <span class='id identifier rubyid_success'>success</span> <span class='op'>=</span> <span class='kw'>false</span> 
+  <span class='kw'>rescue</span> 
+    <span class='id identifier rubyid_success'>success</span> <span class='op'>=</span> <span class='kw'>false</span> 
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_success'>success</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run_missing_method-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_missing_method</strong>(meth, *args, &amp;block)  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74
+75
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/duality.rb', line 72</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_run_missing_method'>run_missing_method</span> <span class='id identifier rubyid_meth'>meth</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
+    <span class='id identifier rubyid_fast'>fast</span> <span class='op'>=</span> <span class='ivar'>@fast</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_meth'>meth</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
+    <span class='id identifier rubyid_slow'>slow</span> <span class='op'>=</span> <span class='ivar'>@slow</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_meth'>meth</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_fast'>fast</span> <span class='kw'>if</span> <span class='id identifier rubyid_fast'>fast</span> <span class='op'>==</span> <span class='id identifier rubyid_slow'>slow</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_slow'>slow</span> <span class='kw'>if</span> <span class='id identifier rubyid_fast'>fast</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_fast'>fast</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="set-instance_method">
   
     - (<tt>Object</tt>) <strong>set</strong>(key, value) 
@@ -656,13 +825,19 @@ but no speed gains.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Set to fast and slow.</p>
-<ul><li>
-<p>return true if both succeed</p>
-</li><li>
-<p>return false if either fail</p>
-</li></ul>
+    <p>
+Set to fast and slow.
+</p>
+<ul>
+<li><p>
+return true if both succeed
+</p>
+</li>
+<li><p>
+return false if either fail
+</p>
+</li>
+</ul>
 
 
   </div>
@@ -696,7 +871,7 @@ but no speed gains.</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Jul 22 19:34:24 2012 by
+  Generated on Sun Jul 22 19:53:01 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.9.2).
 </div>

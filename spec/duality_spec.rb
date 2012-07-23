@@ -70,6 +70,22 @@ describe Duality do
     end
   end
 
+  describe "#flush_expired" do
+    before(:all) do
+      fast = Diskcached.new("/tmp/cache", 0.2)
+      slow = Mongocached.new( lifetime: 0.2 )
+      @cache = Duality.new(fast, slow)
+      @cache.set("flush_test1", "foo")
+      @cache.set("flush_test2", "foo")
+      @cache.set("flush_test3", "foo")
+    end
+    it "should flush from both when expired" do
+      sleep 0.21
+      @cache.flush_expired
+    end
+  end
+
+
   describe "#method_missing" do
     before(:all) do
       @cache = Duality.new($fast, $slow)

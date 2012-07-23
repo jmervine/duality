@@ -57,9 +57,9 @@ describe Duality do
   describe "#flush" do
     before(:all) do
       @cache = Duality.new($fast, $slow)
-      @cache.set("flush_test1", "foo")
-      @cache.set("flush_test2", "foo")
-      @cache.set("flush_test3", "foo")
+      [ "flush_test1", "flush_test2", "flush_test3" ].each do |k|
+        @cache.set(k, "foo")
+      end
     end
     it "should flush from both" do
       expect { @cache.flush }.to_not raise_error
@@ -72,16 +72,20 @@ describe Duality do
 
   describe "#flush_expired" do
     before(:all) do
-      fast = Diskcached.new("/tmp/cache", 0.2)
-      slow = Mongocached.new( lifetime: 0.2 )
-      @cache = Duality.new(fast, slow)
-      @cache.set("flush_test1", "foo")
-      @cache.set("flush_test2", "foo")
-      @cache.set("flush_test3", "foo")
+      @fast = Diskcached.new("/tmp/cache", 0.2)
+      @slow = Mongocached.new( lifetime: 0.2 )
+      @cache = Duality.new(@fast, @slow)
+      [ "flush_test1", "flush_test2", "flush_test3" ].each do |k|
+        @cache.set(k, "foo")
+      end
     end
     it "should flush from both when expired" do
       sleep 0.21
-      @cache.flush_expired
+      expect { @cache.flush_expired }.to_not raise_error
+      [ "flush_test1", "flush_test2", "flush_test3" ].each do |k|
+        expect { @fast.get(k) }.to raise_error /NotFound/
+        expect { @slow.get(k) }.to raise_error /NotFound/
+      end
     end
   end
 

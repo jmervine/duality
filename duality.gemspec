@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Joshua Mervine"]
   s.email       = ["joshua@mervine.net"]
   s.homepage    = "http://github.com/rubyops/duality/"
-  s.summary     = "Simple disk cache"
+  s.summary     = "two caches are better then one"
   s.description = "a simple cache interface to setting and getting from two caches"
  
   s.required_rubygems_version = ">= 1.3.6"

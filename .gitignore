@@ -1,5 +1,6 @@
 *.gem
 *.rbc
+.*sw*
 .bundle
 .config
 InstalledFiles
@@ -11,3 +12,4 @@ test/version_tmp
 tmp
 
 vendor/bundle
+.yardoc

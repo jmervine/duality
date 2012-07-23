@@ -1,4 +1,4 @@
-### Duality
+### Duality - [![Build Status](https://secure.travis-ci.org/rubyops/duality.png?branch=master)](http://travis-ci.org/rubyops/duality)
 
 [Duality](http://github.com/rubyops/duality) is a simple cache helper for using multiple caches. The idea is that you have local cache and a shared cache -- or fast and slow cache -- and want to save to both, and read from local, if present and shared if not. The idea came from [Hector Virgen](http://www.virgentech.com/) (the PHP Zend Jedi Ninja Badass) and [Zend_Cache_Backend_TwoLevels](http://framework.zend.com/manual/en/zend.cache.backends.html#zend.cache.backends.twolevels), which does basically the same thing in PHP.
 
@@ -73,6 +73,6 @@ Another thing that's worth mentioning is if either cache raise an exception, it 
 ### More Info
 
 #### [Documentation](http://rubyops.github.com/duality/doc/Duality.html) 
-#### [Coverage](http://rubyops.github.com/duality/coverage/)
+#### [Coverage](http://rubyops.github.com/duality/coverage/) - [![Build Status](https://secure.travis-ci.org/rubyops/duality.png?branch=master)](http://travis-ci.org/rubyops/duality)
 #### [Benchmarks](https://github.com/rubyops/duality/blob/master/BENCHMARK.md)
 

@@ -1,5 +1,9 @@
 # Duality
 
+## v0.0.5
+
+* added flush_expired support
+
 ## v0.0.4
 
 * removed threading as it's proved to be slower

@@ -1,1 +1,1 @@
-### See: [rubyops.net/gems/duality](http://www.rubyops.net/gems/duality)
+### See: [mervine.net/gems/duality](http://mervine.net/gems/duality)
